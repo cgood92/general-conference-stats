@@ -1,0 +1,39 @@
+name: Build & deploy
+
+defaults:
+  run:
+    working-directory: site
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build & deploy
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install NPM packages
+      run: npm ci
+    
+    - name: Build project
+      run: npm run build
+    
+    - name: Deploy to gh-pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./site/build

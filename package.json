@@ -1,6 +1,5 @@
 {
   "name": "general-conference-stats",
-  "homepage": "https://cgood92.github.io/general-conference-stats/",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",

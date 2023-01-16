@@ -1,0 +1,18 @@
+{
+  "name": "general-conference-stats",
+  "homepage": "https://cgood92.github.io/general-conference-stats/",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "case1": "node ./case1/index.js",
+    "case2": "node ./case2/index.js"
+  },
+  "devDependencies": {
+    "jsdom": "^20.0.3",
+    "json2csv": "5.0.7",
+    "node-fetch": "^3.3.0",
+    "prettier": "2.8.3",
+    "string-strip-html": "8.4.0"
+  }
+}

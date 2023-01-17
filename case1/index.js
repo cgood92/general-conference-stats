@@ -1,7 +1,6 @@
 import { writeFileSync } from "node:fs";
 import fetch from "node-fetch";
 import { JSDOM } from "jsdom";
-import { parse as csvParse } from "json2csv";
 
 export default async function getStatisticalReports() {
   const allStatisticalReports = await getAllStatisticalReports();
@@ -22,7 +21,7 @@ export default async function getStatisticalReports() {
     return row;
   });
 
-  writeFileSync("case1/output/stats.csv", csvParse(rows));
+  writeFileSync("case1/output/stats.json", JSON.stringify(rows, null, 4));
 }
 
 async function getAllStatisticalReports() {

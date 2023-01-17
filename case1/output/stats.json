@@ -1,0 +1,470 @@
+[
+    {
+        "year": "1970",
+        "stakes": 537,
+        "wards": 4922,
+        "membership": 2930810,
+        "children_of_record": 55210,
+        "converts": 79126,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1971/04/statistical-report-1970?lang=eng"
+    },
+    {
+        "year": "1971",
+        "membership": 3090953,
+        "children_of_record": 53524,
+        "converts": 83514,
+        "stakes": 562,
+        "wards": 4342,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1972/04/the-annual-report-of-the-church?lang=eng"
+    },
+    {
+        "year": "1972",
+        "stakes": 592,
+        "wards": 5394,
+        "membership": 3227790,
+        "children_of_record": 58343,
+        "converts": 91237,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1973/04/statistical-report-1972?lang=eng"
+    },
+    {
+        "year": "1973",
+        "stakes": 630,
+        "wards": 5707,
+        "membership": 3321556,
+        "children_of_record": 48578,
+        "converts": 79603,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1974/04/statistical-report-1973?lang=eng"
+    },
+    {
+        "year": "1974",
+        "stakes": 675,
+        "wards": 5951,
+        "membership": 3385909,
+        "children_of_record": 47234,
+        "converts": 69018,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1975/04/statistical-report-1974?lang=eng"
+    },
+    {
+        "year": "1975",
+        "stakes": 737,
+        "wards": 6390,
+        "membership": 3572202,
+        "children_of_record": 50263,
+        "converts": 95412,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1976/04/statistical-report-1975?lang=eng"
+    },
+    {
+        "year": "1976",
+        "stakes": 798,
+        "wards": 6903,
+        "membership": 3742749,
+        "children_of_record": 52281,
+        "converts": 133959,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1977/04/statistical-report-1976?lang=eng"
+    },
+    {
+        "year": "1977",
+        "stakes": 885,
+        "wards": 5917,
+        "membership": 3966000,
+        "children_of_record": 62000,
+        "converts": 167939,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1978/04/statistical-report-1977?lang=eng"
+    },
+    {
+        "year": "1978",
+        "stakes": 990,
+        "wards": 6731,
+        "membership": 4160000,
+        "children_of_record": 63000,
+        "converts": 152000,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1979/04/statistical-report-1978?lang=eng"
+    },
+    {
+        "year": "1979",
+        "stakes": 1092,
+        "wards": 7235,
+        "membership": 4439000,
+        "children_of_record": 67000,
+        "converts": 193000,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1980/04/statistical-report-1979?lang=eng"
+    },
+    {
+        "year": "1980",
+        "stakes": 1218,
+        "wards": 7868,
+        "membership": 4638000,
+        "children_of_record": 65000,
+        "converts": 211000,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1981/04/statistical-report-1980?lang=eng"
+    },
+    {
+        "year": "1981",
+        "stakes": 1321,
+        "wards": 8392,
+        "membership": 4936000,
+        "children_of_record": 69000,
+        "converts": 224000,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1982/04/statistical-report-1981?lang=eng"
+    },
+    {
+        "year": "1982",
+        "stakes": 1392,
+        "wards": 8888,
+        "membership": 5165000,
+        "children_of_record": 67000,
+        "converts": 207000,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1983/04/statistical-report-1982?lang=eng"
+    },
+    {
+        "year": "1983",
+        "stakes": 1458,
+        "wards": 9329,
+        "membership": 5400000,
+        "children_of_record": 69000,
+        "converts": 189419,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1984/04/statistical-report-1983?lang=eng"
+    },
+    {
+        "year": "1984",
+        "stakes": 1507,
+        "wards": 9723,
+        "membership": 5650000,
+        "children_of_record": 69000,
+        "converts": 192983,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1985/04/statistical-report-1984?lang=eng"
+    },
+    {
+        "year": "1985",
+        "stakes": 1582,
+        "wards": 10168,
+        "membership": 5920000,
+        "children_of_record": 70000,
+        "converts": 197640,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1986/04/statistical-report-1985?lang=eng"
+    },
+    {
+        "year": "1986",
+        "stakes": 1622,
+        "wards": 10527,
+        "membership": 6170000,
+        "children_of_record": 72000,
+        "converts": 216210,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1987/04/statistical-report-1986?lang=eng"
+    },
+    {
+        "year": "1987",
+        "stakes": 1666,
+        "wards": 10907,
+        "membership": 6440000,
+        "children_of_record": 75000,
+        "converts": 227284,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1988/04/statistical-report-1987?lang=eng"
+    },
+    {
+        "year": "1988",
+        "stakes": 1707,
+        "wards": 11196,
+        "membership": 6720000,
+        "children_of_record": 73000,
+        "converts": 256515,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1989/04/statistical-report-1988?lang=eng"
+    },
+    {
+        "year": "1989",
+        "stakes": 1739,
+        "wards": 11536,
+        "membership": 7300000,
+        "children_of_record": 75000,
+        "converts": 318940,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1990/04/statistical-report-1989?lang=eng"
+    },
+    {
+        "year": "1990",
+        "stakes": 1784,
+        "wards": 18090,
+        "membership": 7760000,
+        "children_of_record": 78000,
+        "converts": 330877,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1991/04/statistical-report-1990?lang=eng"
+    },
+    {
+        "year": "1991",
+        "stakes": 1837,
+        "wards": 18810,
+        "membership": 8120000,
+        "children_of_record": 75000,
+        "converts": 297770,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1992/04/statistical-report-1991?lang=eng"
+    },
+    {
+        "year": "1992",
+        "stakes": 1919,
+        "wards": 20081,
+        "membership": 8406895,
+        "children_of_record": 77380,
+        "converts": 274477,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1993/04/statistical-report-1992?lang=eng"
+    },
+    {
+        "year": "1993",
+        "stakes": 1968,
+        "wards": 21002,
+        "membership": 8696224,
+        "children_of_record": 76312,
+        "converts": 304808,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1994/04/statistical-report-1993?lang=eng"
+    },
+    {
+        "year": "1994",
+        "stakes": 2008,
+        "wards": 21774,
+        "membership": 9024569,
+        "children_of_record": 72538,
+        "converts": 300730,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1995/04/statistical-report-1994?lang=eng"
+    },
+    {
+        "year": "1995",
+        "stakes": 2150,
+        "wards": 22697,
+        "membership": 9340898,
+        "children_of_record": 71139,
+        "converts": 304330,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1996/04/statistical-report-1995?lang=eng"
+    },
+    {
+        "year": "1996",
+        "stakes": 2296,
+        "wards": 23528,
+        "membership": 9694549,
+        "children_of_record": 81017,
+        "converts": 321385,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1997/04/statistical-report-1996?lang=eng"
+    },
+    {
+        "year": "1997",
+        "stakes": 2424,
+        "wards": 24670,
+        "membership": 10070524,
+        "children_of_record": 75214,
+        "converts": 317798,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1998/04/statistical-report-1997?lang=eng"
+    },
+    {
+        "year": "1998",
+        "stakes": 2505,
+        "wards": 25551,
+        "membership": 10354241,
+        "children_of_record": 76829,
+        "converts": 299134,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/1999/04/statistical-report-1998?lang=eng"
+    },
+    {
+        "year": "1999",
+        "stakes": 2542,
+        "wards": 25793,
+        "membership": 10752986,
+        "children_of_record": 84118,
+        "converts": 306171,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/2000/04/statistical-report-1999?lang=eng"
+    },
+    {
+        "year": "2000",
+        "stakes": 2581,
+        "wards": 25915,
+        "children_of_record": 81450,
+        "converts": 273973,
+        "membership": 11068861,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/2001/04/statistical-report-2000?lang=eng"
+    },
+    {
+        "year": "2001",
+        "stakes": 2607,
+        "wards": 26084,
+        "membership": 11394522,
+        "children_of_record": 69522,
+        "converts": 292612,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/2002/04/statistical-report-2001?lang=eng"
+    },
+    {
+        "year": "2002",
+        "stakes": 2602,
+        "wards": 26143,
+        "membership": 11721548,
+        "children_of_record": 81132,
+        "converts": 283138,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/2003/04/statistical-report-2002?lang=eng"
+    },
+    {
+        "year": "2003",
+        "stakes": 2624,
+        "wards": 26237,
+        "membership": 11985254,
+        "children_of_record": 99457,
+        "converts": 242923,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/2004/04/statistical-report-2003?lang=eng"
+    },
+    {
+        "year": "2004",
+        "stakes": 2665,
+        "wards": 26670,
+        "membership": 12275822,
+        "children_of_record": 98870,
+        "converts": 241239,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/2005/04/statistical-report-2004?lang=eng"
+    },
+    {
+        "year": "2005",
+        "stakes": 2701,
+        "wards": 27087,
+        "membership": 12560869,
+        "children_of_record": 93150,
+        "converts": 243108,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/2006/04/statistical-report-2005?lang=eng"
+    },
+    {
+        "year": "2006",
+        "stakes": 2745,
+        "wards": 27475,
+        "membership": 12868606,
+        "children_of_record": 94006,
+        "converts": 272845,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/2007/04/statistical-report-2006?lang=eng"
+    },
+    {
+        "year": "2007",
+        "stakes": 2790,
+        "wards": 27827,
+        "membership": 13193999,
+        "children_of_record": 93698,
+        "converts": 279218,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/2008/04/statistical-report-2007?lang=eng"
+    },
+    {
+        "year": "2008",
+        "stakes": 2818,
+        "wards": 28109,
+        "membership": 13508509,
+        "children_of_record": 123502,
+        "converts": 265593,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/2009/04/statistical-report-2008?lang=eng"
+    },
+    {
+        "year": "2009",
+        "stakes": 2865,
+        "wards": 28424,
+        "membership": 13824854,
+        "children_of_record": 119722,
+        "converts": 280106,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/2010/04/statistical-report-2009?lang=eng"
+    },
+    {
+        "year": "2010",
+        "membership": 14131467,
+        "children_of_record": 120528,
+        "converts": 272814,
+        "stakes": 2896,
+        "wards": 28660,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/2011/04/statistical-report-2010?lang=eng"
+    },
+    {
+        "year": "2011",
+        "stakes": 2946,
+        "wards": 28784,
+        "membership": 14441346,
+        "children_of_record": 119917,
+        "converts": 281312,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/2012/04/statistical-report-2011?lang=eng"
+    },
+    {
+        "year": "2012",
+        "stakes": 3005,
+        "wards": 29014,
+        "membership": 14782473,
+        "children_of_record": 122273,
+        "converts": 272330,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/2013/04/statistical-report-2012?lang=eng"
+    },
+    {
+        "year": "2013",
+        "stakes": 3050,
+        "wards": 29253,
+        "membership": 15082028,
+        "children_of_record": 115486,
+        "converts": 282945,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/2014/04/statistical-report-2013?lang=eng"
+    },
+    {
+        "year": "2014",
+        "stakes": 3114,
+        "wards": 29621,
+        "membership": 15372337,
+        "children_of_record": 116409,
+        "converts": 296803,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/2015/04/statistical-report-2014?lang=eng"
+    },
+    {
+        "year": "2015",
+        "stakes": 3174,
+        "wards": 30016,
+        "membership": 15634199,
+        "children_of_record": 114550,
+        "converts": 257402,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/2016/04/statistical-report-2015?lang=eng"
+    },
+    {
+        "year": "2016",
+        "stakes": 3266,
+        "wards": 30304,
+        "membership": 15882417,
+        "children_of_record": 109246,
+        "converts": 240131,
+        "url": "https://www.churchofjesuschrist.org/study/general-conference/2017/04/statistical-report-2016?lang=eng"
+    },
+    {
+        "year": "2017",
+        "stakes": 3341,
+        "wards": 30506,
+        "membership": 16118169,
+        "children_of_record": 106771,
+        "converts": 233729,
+        "url": "https://newsroom.churchofjesuschrist.org/article/2017-statistical-report-april-2018-general-conference"
+    },
+    {
+        "year": "2018",
+        "stakes": 3383,
+        "wards": 30536,
+        "membership": 16313735,
+        "children_of_record": 102102,
+        "converts": 234332,
+        "url": "https://newsroom.churchofjesuschrist.org/article/2018-statistical-report"
+    },
+    {
+        "year": "2019",
+        "stakes": 3437,
+        "wards": 30940,
+        "membership": 16565036,
+        "children_of_record": 94266,
+        "converts": 248835,
+        "url": "https://newsroom.churchofjesuschrist.org/article/2019-statistical-report"
+    },
+    {
+        "year": "2020",
+        "stakes": 3463,
+        "wards": 31136,
+        "membership": 16663663,
+        "children_of_record": 65440,
+        "converts": 125930,
+        "url": "https://newsroom.churchofjesuschrist.org/article/april-2021-general-conference-statistical-report"
+    },
+    {
+        "year": "2021",
+        "stakes": 3498,
+        "wards": 31315,
+        "membership": 16805400,
+        "children_of_record": 89069,
+        "converts": 168283,
+        "url": "https://newsroom.churchofjesuschrist.org/article/2021-statistical-report-april-2022-conference"
+    }
+]

@@ -1,19 +1,45 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { Suspense } from "react";
+import ReactDOM from "react-dom/client";
+import { createHashRouter, RouterProvider } from "react-router-dom";
+import Home from "./home";
+import "./index.css";
+import Layout from "./layout";
+import Loading from "./loading";
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const Case1 = React.lazy(() => import("./case-1"));
+const Case2 = React.lazy(() => import("./case-2"));
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const router = createHashRouter([
+  {
+    path: "/",
+    element: (
+      <Layout>
+        <Home />
+      </Layout>
+    ),
+  },
+  {
+    path: "/case-1/*",
+    element: (
+      <Layout>
+        <Suspense fallback={<Loading />}>
+          <Case1 />
+        </Suspense>
+      </Layout>
+    ),
+  },
+  {
+    path: "/case-2/*",
+    element: (
+      <Layout>
+        <Suspense fallback={<Loading />}>
+          <Case2 />
+        </Suspense>
+      </Layout>
+    ),
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <RouterProvider router={router} />
+);

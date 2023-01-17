@@ -1,0 +1,5 @@
+a:not(:first-of-type).active {
+    font-weight: bold;
+    text-decoration: none !important;
+    color: #222 !important;
+}

@@ -9,7 +9,6 @@
   },
   "devDependencies": {
     "jsdom": "^20.0.3",
-    "json2csv": "5.0.7",
     "node-fetch": "^3.3.0",
     "prettier": "2.8.3",
     "string-strip-html": "8.4.0"

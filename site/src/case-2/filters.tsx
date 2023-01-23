@@ -1,5 +1,5 @@
 import React from "react";
-import { ComboBox, Item, RangeSlider, View } from "@adobe/react-spectrum";
+import { ComboBox, Flex, Item, RangeSlider } from "@adobe/react-spectrum";
 import data from "./data";
 
 const speakers = Array.from(new Set(data.map((talk) => talk.speaker)))
@@ -23,10 +23,17 @@ type FiltersProps = {
 
 export default function Filters({ onChange, value }: FiltersProps) {
   return (
-    <View width="15%" marginStart="auto" paddingX="size-300">
+    <Flex
+      width={{ base: "100%", L: "15%" }}
+      marginStart="auto"
+      marginX={{ base: "0", L: "size-300" }}
+      gap="size-300"
+      alignItems={{ base: "end", L: "start" }}
+      direction={{ base: "row", L: "column" }}
+    >
       <ComboBox
         label="Speaker"
-        width="100%"
+        width={{ base: "0", L: "100%" }}
         defaultSelectedKey={value.speaker}
         defaultItems={speakers}
         onSelectionChange={(speaker) =>
@@ -41,8 +48,7 @@ export default function Filters({ onChange, value }: FiltersProps) {
 
       <RangeSlider
         label="Years"
-        marginTop="size-200"
-        width="100%"
+        width={{ base: "0", L: "100%" }}
         minValue={minYear}
         maxValue={maxYear}
         defaultValue={value.years}
@@ -54,6 +60,6 @@ export default function Filters({ onChange, value }: FiltersProps) {
           })
         }
       />
-    </View>
+    </Flex>
   );
 }

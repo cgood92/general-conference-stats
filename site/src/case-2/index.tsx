@@ -13,46 +13,39 @@ export default function Main() {
   console.log("window.location.search", window.location.search);
 
   return (
-    <View height="100%" paddingX="size-3000">
-      <Flex height="100%" direction="column">
-        <SearchBar searchTerms={searchTerms} setSearchTerms={setSearchTerms} />
-        <Flex direction={{ base: "row", S: "column", M: "row" }}>
-          <section style={{ height: "100%", width: "85%" }}>
-            <Routes>
-              <Route
-                path="search"
-                element={
-                  <WordTrend filters={filters} searchTerms={searchTerms} />
-                }
-              ></Route>
-              <Route
-                path=""
-                element={
-                  searchTerms.length ? (
-                    <Navigate
-                      to={{
-                        pathname: "search",
-                        search: window.location.hash.substr(
-                          window.location.hash.indexOf("?")
-                        ),
-                      }}
-                      replace={true}
-                    />
-                  ) : (
-                    <WordCount filters={filters} />
-                  )
-                }
-              ></Route>
-            </Routes>
-            {/* {searchTerms.length ? (
-              <WordTrend filters={filters} searchTerms={searchTerms} />
-            ) : (
-              <WordCount filters={filters} />
-            )} */}
-          </section>
-          <Filters onChange={setFilters} value={filters} />
-        </Flex>
+    <Flex height="100%" direction="column">
+      <SearchBar searchTerms={searchTerms} setSearchTerms={setSearchTerms} />
+      <Flex direction={{ base: "column-reverse", L: "row" }}>
+        <View height="100%" width={{ base: "100%", L: "85%" }}>
+          <Routes>
+            <Route
+              path="search"
+              element={
+                <WordTrend filters={filters} searchTerms={searchTerms} />
+              }
+            ></Route>
+            <Route
+              path=""
+              element={
+                searchTerms.length ? (
+                  <Navigate
+                    to={{
+                      pathname: "search",
+                      search: window.location.hash.substr(
+                        window.location.hash.indexOf("?")
+                      ),
+                    }}
+                    replace={true}
+                  />
+                ) : (
+                  <WordCount filters={filters} />
+                )
+              }
+            ></Route>
+          </Routes>
+        </View>
+        <Filters onChange={setFilters} value={filters} />
       </Flex>
-    </View>
+    </Flex>
   );
 }

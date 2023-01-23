@@ -4,7 +4,7 @@ import { Link as ReactLink } from "react-router-dom";
 
 export default function Home() {
   return (
-    <View height="100%" paddingX="size-3000">
+    <View height="100%">
       View the code on{" "}
       <Link>
         <a href="https://github.com/cgood92/general-conference-stats">

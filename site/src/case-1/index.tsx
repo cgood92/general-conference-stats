@@ -47,7 +47,7 @@ const chartLabelMap = new Map([
 
 export default function Main() {
   return (
-    <View height="100%" paddingX="size-3000">
+    <View height="100%">
       {[stakesSeries, wardsSeries, membershipSeries, baptismsSeries].map(
         (series, index) => (
           <ApexChart

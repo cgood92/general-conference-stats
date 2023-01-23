@@ -31,7 +31,7 @@ export default function WordCount({ filters }: WordCountProps) {
   );
 
   const columns = [
-    { name: "Rank", key: "rank", width: 200 },
+    { name: "Rank", key: "rank" },
     { name: "Word", key: "_word" },
     { name: "Count", key: "count" },
   ];
@@ -110,7 +110,7 @@ export default function WordCount({ filters }: WordCountProps) {
         density="compact"
       >
         <TableHeader columns={columns}>
-          {(column) => <Column width={column.width}>{column.name}</Column>}
+          {(column) => <Column>{column.name}</Column>}
         </TableHeader>
         <TableBody items={wordCountArray}>
           {(item) => (

@@ -34,7 +34,7 @@ export default function SearchBar({
           setSearchTerms((previous) => previous.concat(term));
           setCurrentSearchText("");
         }}
-        minWidth="size-6000"
+        width={{ base: "100%", L: "size-6000" }}
       />
       <TagGroup
         items={searchTerms.map((term) => ({ key: term, term }))}

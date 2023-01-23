@@ -17,6 +17,12 @@ export default function Layout({ children }: LayoutProps) {
           height="100%"
           flex={1}
           paddingY="size-200"
+          paddingX={{
+            base: "size-50",
+            S: "size-50",
+            M: "size-100",
+            L: "10%",
+          }}
           UNSAFE_style={{ overflow: "auto" }}
         >
           {children}

@@ -7,11 +7,10 @@ import {
   TableBody,
   TableHeader,
 } from "@adobe/react-spectrum";
-import { removeStopwords } from "stopword";
-import type { FilterState } from "./filters";
-import data from "./data";
-import "./wordCount.css";
-import Crunching from "./crunching";
+import Crunching from "../crunching";
+import type { FilterState } from "../filters";
+import getWordCounts from "./getWordCounts";
+import "./index.css";
 
 type WordCountProps = {
   filters: FilterState;
@@ -19,9 +18,9 @@ type WordCountProps = {
 
 type WordCountItem = {
   key: string;
+  count: number;
   rank: number;
   _word: string;
-  count: number;
 };
 
 export default function WordCount({ filters }: WordCountProps) {
@@ -38,54 +37,11 @@ export default function WordCount({ filters }: WordCountProps) {
 
   useEffect(() => {
     setLoading(true);
-    new Promise((resolve) => setTimeout(resolve))
-      .then(() =>
-        data.filter((talk) => {
-          let validSpeaker = true;
-
-          if (filters.speaker) {
-            validSpeaker = talk.speaker === filters.speaker;
-          }
-
-          const validYear =
-            talk.year <= filters.years.end && talk.year >= filters.years.start;
-
-          return validSpeaker && validYear;
-        })
-      )
-      .then((rows) =>
-        removeStopwords(
-          rows
-            .map((talk) => talk.content || "")
-            .join(" ")
-            .replaceAll("\n", "")
-            .split(" ")
-        )
-          .map((word) => word.replaceAll(/[^a-zA-Z]/gi, ""))
-          .filter((word) => word)
-          .reduce((acc: Record<string, number>, word: string) => {
-            acc[word] = acc[word] || 0;
-            acc[word]++;
-
-            return acc;
-          }, {})
-      )
-      .then((wordMap) =>
-        Object.keys(wordMap)
-          .sort((a, b) => wordMap[b] - wordMap[a])
-          .slice(0, 300)
-          .map((word, index) => ({
-            key: word,
-            rank: index + 1,
-            _word: word,
-            count: wordMap[word],
-          }))
-      )
-      .then((wordCountArray) => {
-        setWordCountArray(wordCountArray);
-        setLoading(false);
-      });
-  }, [filters.speaker, filters.years.end, filters.years.start]);
+    getWordCounts(filters).then((wordCountArray) => {
+      setWordCountArray(wordCountArray);
+      setLoading(false);
+    });
+  }, [filters]);
 
   if (loading) {
     return <Crunching />;

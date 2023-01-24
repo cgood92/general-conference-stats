@@ -12,7 +12,7 @@ export default function Home() {
         </a>
       </Link>
       .
-      <Heading level={2} id="what-is-this-project-about-">
+      <Heading id="what-is-this-project-about-" level={2}>
         What is this project about?
       </Heading>
       <p>
@@ -38,13 +38,13 @@ export default function Home() {
         Christ of Latter-day Saints, so my motives are nothing but positive in
         analyzing these things.
       </p>
-      <Heading level={2} id="how-was-the-data-acquired">
+      <Heading id="how-was-the-data-acquired" level={2}>
         How was the data acquired
       </Heading>
       <p>
         You can inspect the code yourself, but here&#39;s a high-level overview:
       </p>
-      <Heading level={3} id="case-1">
+      <Heading id="case-1" level={3}>
         Case 1
       </Heading>
       <ol>
@@ -67,7 +67,7 @@ export default function Home() {
           verified (though the graphs seem to look as though they were correct).
         </li>
       </ol>
-      <Heading level={3} id="case-2">
+      <Heading id="case-2" level={3}>
         Case 2
       </Heading>
       <ol>
@@ -101,7 +101,7 @@ export default function Home() {
           Sessions and Women Sessions.
         </li>
       </ol>
-      <Heading level={2} id="what-s-next-">
+      <Heading id="what-is-next" level={2}>
         What&#39;s next:
       </Heading>
       <ol>
@@ -110,7 +110,7 @@ export default function Home() {
         <li>Write unit tests</li>
         <li>Explore more ideas</li>
       </ol>
-      <Heading level={2} id="can-you-help-">
+      <Heading id="can-you-help" level={2}>
         Can you help?
       </Heading>
       <p>Please contribute to this project if you:</p>

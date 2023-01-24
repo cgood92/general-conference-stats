@@ -11,7 +11,7 @@ export default function Header() {
       minWidth="size-900"
       padding="size-100"
     >
-      <Flex gap="size-300" alignItems="center" marginStart="size-150">
+      <Flex alignItems="center" gap="size-300" marginStart="size-150">
         <Link UNSAFE_style={{ color: "#222", textDecoration: "none" }}>
           <NavLink to="/" style={{ textDecoration: "none" }}>
             <Home />

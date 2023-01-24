@@ -2,9 +2,9 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import Home from "./home";
-import "./index.css";
 import Layout from "./layout";
 import Loading from "./loading";
+import "./index.css";
 
 const Case1 = React.lazy(() => import("./case-1"));
 const Case2 = React.lazy(() => import("./case-2"));

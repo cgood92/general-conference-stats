@@ -19,32 +19,33 @@ export default function SearchBar({
 }: SearchBarProps) {
   const [currentSearchText, setCurrentSearchText] = useState("");
 
+  const onClear = () => setCurrentSearchText("");
+  const onRemove = (term: React.Key) =>
+    setSearchTerms((previous) =>
+      previous.filter((savedTerm) => savedTerm !== term)
+    );
+  const onSubmit = (term: string) => {
+    setSearchTerms((previous) => previous.concat(term));
+    setCurrentSearchText("");
+  };
+
   return (
     <>
       <SearchField
-        contextualHelp={<RegexHelp />}
-        value={currentSearchText}
-        onChange={setCurrentSearchText}
         aria-label="Search for a term"
-        label={<span />}
-        onClear={() => {
-          setCurrentSearchText("");
-        }}
-        onSubmit={(term) => {
-          setSearchTerms((previous) => previous.concat(term));
-          setCurrentSearchText("");
-        }}
+        contextualHelp={<RegexHelp />}
+        label={<span />} // This is something non-null to render contextual help
+        onChange={setCurrentSearchText}
+        onClear={onClear}
+        onSubmit={onSubmit}
+        value={currentSearchText}
         width={{ base: "100%", L: "size-6000" }}
       />
       <TagGroup
-        items={searchTerms.map((term) => ({ key: term, term }))}
-        allowsRemoving
-        onRemove={(term) =>
-          setSearchTerms((previous) =>
-            previous.filter((savedTerm) => savedTerm !== term)
-          )
-        }
         aria-label="Search terms"
+        allowsRemoving
+        items={searchTerms.map((term) => ({ key: term, term }))}
+        onRemove={onRemove}
       >
         {(item) => <Item>{item.term}</Item>}
       </TagGroup>
@@ -56,7 +57,7 @@ function RegexHelp() {
   return (
     <div>
       Search for a term, and press "Enter" -
-      <ContextualHelp variant="info" containerPadding={0}>
+      <ContextualHelp containerPadding={0} variant="info">
         <Heading>Search tips</Heading>
         <Content>
           <p>
@@ -75,7 +76,7 @@ function RegexHelp() {
           <Well>Elder [a-zA-Z]+</Well>
           <p>
             Learn more about RegEx{" "}
-            <a href="https://regexone.com/" target="_blank" rel="noreferrer">
+            <a href="https://regexone.com/" rel="noreferrer" target="_blank">
               here
             </a>
             .

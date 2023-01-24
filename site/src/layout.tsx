@@ -1,7 +1,7 @@
 import React from "react";
 import { defaultTheme, Flex, Provider, View } from "@adobe/react-spectrum";
-import Header from "./header";
 import Footer from "./footer";
+import Header from "./header";
 
 type LayoutProps = {
   children: any;
@@ -14,15 +14,13 @@ export default function Layout({ children }: LayoutProps) {
         <Header />
         <View
           backgroundColor="static-gray-100"
-          height="100%"
           flex={1}
-          paddingY="size-200"
+          height="100%"
           paddingX={{
             base: "size-50",
-            S: "size-50",
-            M: "size-100",
             L: "10%",
           }}
+          paddingY="size-200"
           UNSAFE_style={{ overflow: "auto" }}
         >
           {children}

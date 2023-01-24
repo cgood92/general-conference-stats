@@ -6,7 +6,7 @@ export default function EmptySearch() {
   return (
     <IllustratedMessage height="auto" marginY="size-1000">
       <NoSearchResults />
-      <Heading>No terms to search for</Heading>
+      <Heading>Nothing to search for</Heading>
       <Content>Go ahead, search something else, it'll be fun!</Content>
     </IllustratedMessage>
   );

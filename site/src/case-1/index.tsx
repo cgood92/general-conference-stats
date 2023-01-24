@@ -3,6 +3,25 @@ import { View } from "@adobe/react-spectrum";
 import ApexChart from "react-apexcharts";
 
 import data from "@root/case1/output/stats.json";
+import commonChartConfig from "../commonChartConfig";
+
+export default function Case2() {
+  return (
+    <View height="100%">
+      {[stakesSeries, wardsSeries, membershipSeries, baptismsSeries].map(
+        (series, index) => (
+          <ApexChart
+            key={index}
+            options={getChartOptions({ title: chartLabelMap.get(series)! })}
+            series={series}
+            type="line"
+            height={350}
+          />
+        )
+      )}
+    </View>
+  );
+}
 
 const years = data.map(({ year }) => year);
 
@@ -45,63 +64,14 @@ const chartLabelMap = new Map([
   [baptismsSeries, "Baptisms"],
 ]);
 
-export default function Main() {
-  return (
-    <View height="100%">
-      {[stakesSeries, wardsSeries, membershipSeries, baptismsSeries].map(
-        (series, index) => (
-          <ApexChart
-            key={index}
-            options={getChartOptions({ title: chartLabelMap.get(series)! })}
-            series={series}
-            type="line"
-            height={350}
-          />
-        )
-      )}
-    </View>
-  );
-}
-
 function getChartOptions({ title }: { title: string }) {
   return {
-    chart: {
-      height: 350,
-      dropShadow: {
-        enabled: true,
-        color: "#000",
-        top: 18,
-        left: 7,
-        blur: 10,
-        opacity: 0.2,
-      },
-      toolbar: {
-        show: true,
-      },
-    },
-    dataLabels: {
-      enabled: false,
-    },
+    ...commonChartConfig,
     title: {
       text: title,
-    },
-    grid: {
-      borderColor: "#e7e7e7",
-      row: {
-        colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
-        opacity: 0.5,
-      },
-    },
-    markers: {
-      size: 0.5,
     },
     xaxis: {
       categories: years,
     },
-    yaxis: {
-      labels: {
-        formatter: (value: number) => Number(value).toLocaleString()
-      }
-    },
-  }
+  };
 };

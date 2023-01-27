@@ -3,19 +3,26 @@ import { filterData, FilterState } from "../filters";
 
 type SearchTerms = Array<string>;
 
-export function getTrendData(
+export function getSearchResults(
   filters: FilterState,
-  searchTerms: SearchTerms,
-  yearsArray: Array<number>
+  searchTerms: SearchTerms
 ) {
   return Promise.resolve(data)
     .then((data) => filterData(data, filters))
-    .then((talks) => searchForTerms(talks, searchTerms))
+    .then((talks) => searchForTerms(talks, searchTerms));
+}
+
+export function getTrendData(
+  searchResults: Array<Array<SearchResult>>,
+  searchTerms: SearchTerms,
+  yearsArray: Array<number>
+) {
+  return Promise.resolve(searchResults)
     .then((results) => groupIntoYears(results, searchTerms, yearsArray))
     .then((arraysByYear) => shapeIntoSeries(arraysByYear, searchTerms));
 }
 
-type SearchResult = {
+export type SearchResult = {
   talk: (typeof data)[3];
   results: Array<RegExpMatchArray>;
 };

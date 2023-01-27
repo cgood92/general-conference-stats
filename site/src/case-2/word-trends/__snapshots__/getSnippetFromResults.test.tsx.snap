@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`creates a logical snippet for the results case 1 1`] = `
+Array [
+  "...",
+  " and friends who are listening by radio and television, may I now for a few mo",
+  <mark>
+    ment
+  </mark>,
+  "s make some comments about a condition which is of great concern to all of us...",
+  " listening by radio and television, may I now for a few moments make some com",
+  <mark>
+    ment
+  </mark>,
+  "s about a condition which is of great concern to all of us today...",
+  "
+“Self-respect is the noblest gar",
+  <mark>
+    ment
+  </mark>,
+  " with which a man can clothe himself, the most elevating feeling with which the...",
+  " of the importance of conforming to certain standards required for advance",
+  <mark>
+    ment
+  </mark>,
+  "...",
+  " I pondered this subject and searched the word of God to prepare for this assign",
+  <mark>
+    ment
+  </mark>,
+  ", I immediately sensed that I was to talk about a subject that is of first...",
+  " often than not a bid for a kind of attention or popularity that physical and ",
+  <mark>
+    ment
+  </mark>,
+  "al endowments do not invite...",
+  " not a bid for a kind of attention or popularity that physical and mental endow",
+  <mark>
+    ment
+  </mark>,
+  "s do not invite...",
+  " often but a reflection of an individual who is seeking, by superficial adorn",
+  <mark>
+    ment
+  </mark>,
+  " or by abnormal conduct (in a strange way), to supply that indefinable quality...",
+  " of this earth’s existence and, furthermore, if they would keep the command",
+  <mark>
+    ment
+  </mark>,
+  "s as God taught by the revelations, they would have “glory added upon their...",
+  "
+So the Old Testa",
+  <mark>
+    ment
+  </mark>,
+  " prophets declared with respect to death: “Then shall the dust [meaning our...",
+  " blessed to have a physical body because of your obedience to certain command",
+  <mark>
+    ment
+  </mark>,
+  "s in that premortal state...",
+  " apostle Paul impressed the sacredness of our individual bodies in this state",
+  <mark>
+    ment
+  </mark>,
+  ": “Know ye not that ye are the temple of God, and that the Spirit of God...",
+  " members of the church that they had received the gift of a special endow",
+  <mark>
+    ment
+  </mark>,
+  " known as the Holy Ghost...",
+]
+`;

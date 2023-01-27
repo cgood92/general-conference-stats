@@ -3,8 +3,11 @@ import { Divider, Flex, Link, View } from "@adobe/react-spectrum";
 import Home from "@spectrum-icons/workflow/Home";
 import { NavLink } from "react-router-dom";
 import "./index.css";
+import usePageTracking from "../usePageTracking";
 
 export default function Header() {
+  usePageTracking();
+
   return (
     <View
       backgroundColor="static-gray-200"

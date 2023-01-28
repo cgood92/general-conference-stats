@@ -8,6 +8,7 @@ import "./index.css";
 
 const Case1 = React.lazy(() => import("./case-1"));
 const Case2 = React.lazy(() => import("./case-2"));
+const Case2Verification = React.lazy(() => import("./case-2/verification"));
 
 const router = createHashRouter([
   {
@@ -24,6 +25,16 @@ const router = createHashRouter([
       <Layout>
         <Suspense fallback={<Loading />}>
           <Case1 />
+        </Suspense>
+      </Layout>
+    ),
+  },
+  {
+    path: "/case-2/verification",
+    element: (
+      <Layout>
+        <Suspense fallback={<Loading />}>
+          <Case2Verification />
         </Suspense>
       </Layout>
     ),

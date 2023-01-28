@@ -108,6 +108,7 @@ export default function Home() {
         <li>Validate the dataset</li>
         <li>Make improvements to the website</li>
         <li>Write unit tests</li>
+        <li>Research vocabulary size per speaker</li>
         <li>Explore more ideas</li>
       </ol>
       <Heading id="can-you-help" level={2}>

@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start": "craco start",
-    "build": "DISABLE_ESLINT_PLUGIN=true craco build",
+    "build": "CI=false craco build",
     "test": "craco test",
     "eject": "craco eject"
   },

@@ -31,7 +31,7 @@ function orderByFrequency(words: Array<string>, limit: number) {
 
   return Object.keys(frequencyMap)
     .sort((a, b) => frequencyMap[b] - frequencyMap[a])
-    .slice(0, 300)
+    .slice(0, limit)
     .map((word, index) => ({
       key: word,
       rank: index + 1,

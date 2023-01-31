@@ -5,7 +5,6 @@ const { talks, speakers } = webCompressed as any;
 type Talk = {
   speaker: string;
   title: string;
-  talk: string;
   url: string;
   year: number;
   month: number;

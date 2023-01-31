@@ -10,6 +10,7 @@ const Growth = React.lazy(() => import("./growth"));
 const WordCounts = React.lazy(() => import("./word-counts"));
 const SearchTrends = React.lazy(() => import("./search-trends"));
 const ListOfTalks = React.lazy(() => import("./list-of-talks"));
+const VocabularySize = React.lazy(() => import("./vocabulary-size"));
 
 const router = createHashRouter([
   {
@@ -48,6 +49,16 @@ const router = createHashRouter([
       <Layout>
         <Suspense fallback={<Loading />}>
           <ListOfTalks />
+        </Suspense>
+      </Layout>
+    ),
+  },
+  {
+    path: "/vocabulary-size",
+    element: (
+      <Layout>
+        <Suspense fallback={<Loading />}>
+          <VocabularySize />
         </Suspense>
       </Layout>
     ),

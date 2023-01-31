@@ -34,6 +34,10 @@ export default function Header() {
         </Link>
         <Divider orientation="vertical" size="M" />
         <Link>
+          <NavLink to="/vocabulary-size">Vocabulary size</NavLink>
+        </Link>
+        <Divider orientation="vertical" size="M" />
+        <Link>
           <NavLink to="/list-of-talks">List of talks</NavLink>
         </Link>
       </Flex>

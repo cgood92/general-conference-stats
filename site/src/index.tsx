@@ -13,14 +13,6 @@ const ListOfTalks = React.lazy(() => import("./list-of-talks"));
 
 const router = createHashRouter([
   {
-    path: "/",
-    element: (
-      <Layout>
-        <Home />
-      </Layout>
-    ),
-  },
-  {
     path: "/growth",
     element: (
       <Layout>
@@ -57,6 +49,14 @@ const router = createHashRouter([
         <Suspense fallback={<Loading />}>
           <ListOfTalks />
         </Suspense>
+      </Layout>
+    ),
+  },
+  {
+    path: "/*",
+    element: (
+      <Layout>
+        <Home />
       </Layout>
     ),
   },

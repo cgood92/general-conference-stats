@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import { createHashRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, Navigate, RouterProvider } from "react-router-dom";
 import Home from "./home";
 import Layout from "./layout";
 import Loading from "./loading";
@@ -64,12 +64,16 @@ const router = createHashRouter([
     ),
   },
   {
-    path: "/*",
+    path: "/",
     element: (
       <Layout>
         <Home />
       </Layout>
     ),
+  },
+  {
+    path: "*",
+    element: <Navigate to="/" replace={true} />,
   },
 ]);
 

@@ -6,9 +6,10 @@ import Layout from "./layout";
 import Loading from "./loading";
 import "./index.css";
 
-const Case1 = React.lazy(() => import("./case-1"));
-const Case2 = React.lazy(() => import("./case-2"));
-const Case2Verification = React.lazy(() => import("./case-2/verification"));
+const Growth = React.lazy(() => import("./growth"));
+const WordCounts = React.lazy(() => import("./word-counts"));
+const SearchTrends = React.lazy(() => import("./search-trends"));
+const ListOfTalks = React.lazy(() => import("./list-of-talks"));
 
 const router = createHashRouter([
   {
@@ -20,31 +21,41 @@ const router = createHashRouter([
     ),
   },
   {
-    path: "/case-1/*",
+    path: "/growth",
     element: (
       <Layout>
         <Suspense fallback={<Loading />}>
-          <Case1 />
+          <Growth />
         </Suspense>
       </Layout>
     ),
   },
   {
-    path: "/case-2/verification",
+    path: "/word-counts",
     element: (
       <Layout>
         <Suspense fallback={<Loading />}>
-          <Case2Verification />
+          <WordCounts />
         </Suspense>
       </Layout>
     ),
   },
   {
-    path: "/case-2/*",
+    path: "/search-trends",
     element: (
       <Layout>
         <Suspense fallback={<Loading />}>
-          <Case2 />
+          <SearchTrends />
+        </Suspense>
+      </Layout>
+    ),
+  },
+  {
+    path: "/list-of-talks",
+    element: (
+      <Layout>
+        <Suspense fallback={<Loading />}>
+          <ListOfTalks />
         </Suspense>
       </Layout>
     ),

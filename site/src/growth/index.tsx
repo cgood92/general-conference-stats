@@ -1,13 +1,16 @@
 import React from "react";
-import { View } from "@adobe/react-spectrum";
+import { Content, Text, View } from "@adobe/react-spectrum";
 import ApexChart from "react-apexcharts";
 
 import data from "@root/case1/output/stats.json";
 import commonChartConfig from "../commonChartConfig";
 
-export default function Case2() {
+export default function Growth() {
   return (
     <View height="100%">
+      <Content marginBottom="size-300">
+        <Text>Growth statistics, as reported in General Conference.</Text>
+      </Content>
       {[stakesSeries, wardsSeries, membershipSeries, baptismsSeries].map(
         (series, index) => (
           <ApexChart

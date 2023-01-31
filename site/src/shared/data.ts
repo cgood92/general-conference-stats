@@ -22,3 +22,4 @@ const output: Talk[] = talks.map((talk: any) => ({
 }));
 
 export default output;
+export { speakers };

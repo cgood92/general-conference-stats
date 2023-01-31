@@ -7,11 +7,7 @@ import {
   TableBody,
   TableHeader,
 } from "@adobe/react-spectrum";
-import data from "../data";
-
-const items = data.sort(
-  (a, b) => (a.content?.length || 0) - (b.content?.length || 0)
-);
+import data from "../shared/data";
 
 export default function Verification() {
   const columns = [
@@ -26,7 +22,7 @@ export default function Verification() {
       <TableHeader columns={columns}>
         {(column) => <Column width={column.width as any}>{column.name}</Column>}
       </TableHeader>
-      <TableBody items={items}>
+      <TableBody items={data}>
         {(item) => (
           <Row key={item.url}>
             {(key) => {
@@ -55,7 +51,11 @@ export default function Verification() {
                   </Cell>
                 );
               }
-              return <Cell>{item.content?.length || 0}</Cell>;
+              return (
+                <Cell>
+                  {Number(item.content?.length || 0).toLocaleString()}
+                </Cell>
+              );
             }}
           </Row>
         )}

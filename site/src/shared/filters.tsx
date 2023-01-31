@@ -1,6 +1,6 @@
 import React from "react";
 import { ComboBox, Flex, Item, RangeSlider } from "@adobe/react-spectrum";
-import data from "./data";
+import data, { speakers } from "./data";
 
 export type FilterState = {
   speaker: string;
@@ -23,7 +23,7 @@ export default function Filters({ onChange, value }: FiltersProps) {
       width={{ base: "100%", L: "15%" }}
     >
       <ComboBox
-        defaultItems={speakers}
+        defaultItems={speakersArray}
         defaultSelectedKey={value.speaker}
         label="Speaker"
         onSelectionChange={(speaker) =>
@@ -55,12 +55,12 @@ export default function Filters({ onChange, value }: FiltersProps) {
   );
 }
 
-const speakers = Array.from(new Set(data.map((talk) => talk.speaker)))
+const speakersArray = Object.values(speakers)
   // TODO: we shouldn't have any without speakers...
   .filter(Boolean)
   .sort()
-  .map((key) => ({ key, label: key }));
-speakers.unshift({ key: "", label: "All Speakers" });
+  .map((key) => ({ key: key as string, label: key as string }));
+speakersArray.unshift({ key: "", label: "All Speakers" });
 
 export const minYear = data[0].year;
 export const maxYear = data.slice(-1)[0].year;

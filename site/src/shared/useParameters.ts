@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import { FilterState, maxYear, minYear } from "../filters";
+import { FilterState, maxYear, minYear } from "./filters";
 
 const defaultSearchParams = {
   speaker: "",
@@ -16,7 +16,11 @@ export default function useParameters() {
   const speaker = searchParams.get("speaker")!;
   const start = parseInt(searchParams.get("start")!);
   const end = parseInt(searchParams.get("end")!);
-  const searchTerms = searchParams.getAll("searchTerms");
+  const searchTermsText = searchParams.getAll("searchTerms").join("__");
+  const memoizedSearchTerms = useMemo(
+    () => searchTermsText.split("__").filter(Boolean),
+    [searchTermsText]
+  );
 
   const filters = useMemo(
     () => ({
@@ -58,7 +62,7 @@ export default function useParameters() {
   return {
     filters,
     setFilters,
-    searchTerms,
+    searchTerms: memoizedSearchTerms,
     setSearchTerms,
   };
 }

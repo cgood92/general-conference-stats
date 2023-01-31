@@ -1,6 +1,5 @@
 import React from "react";
 import { Heading, Link, View } from "@adobe/react-spectrum";
-import { Link as ReactLink } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -20,18 +19,8 @@ export default function Home() {
         look at a few things from General Conference:
       </p>
       <ol>
-        <li>
-          <Link>
-            <ReactLink to="/case-1">Case 1</ReactLink>
-          </Link>
-          : What does the growth of the church look like?
-        </li>
-        <li>
-          <Link>
-            <ReactLink to="/case-1">Case 2</ReactLink>
-          </Link>
-          : What trends of phrases have happened in the church vocabulary?
-        </li>
+        <li>What does the growth of the church look like?</li>
+        <li>What trends of phrases have happened in the church vocabulary?</li>
       </ol>
       <p>
         For the record, I&#39;m a very happy member of the Church of Jesus
@@ -95,19 +84,12 @@ export default function Home() {
           to remove footnote links but removes some scripture references and
           other things.
         </li>
-        <li>
-          I have not yet verified that the talks that were downloaded are all
-          legit. I have also not yet verified that this works for Priesthood
-          Sessions and Women Sessions.
-        </li>
       </ol>
       <Heading id="what-is-next" level={2}>
         What&#39;s next:
       </Heading>
       <ol>
-        <li>Validate the dataset</li>
-        <li>Make improvements to the website</li>
-        <li>Write unit tests</li>
+        <li>Get link tags working</li>
         <li>Research vocabulary size per speaker</li>
         <li>Explore more ideas</li>
       </ol>

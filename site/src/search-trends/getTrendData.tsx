@@ -1,5 +1,5 @@
-import data from "../data";
-import { filterData, FilterState } from "../filters";
+import data from "../shared/data";
+import { filterData, FilterState } from "../shared/filters";
 
 type SearchTerms = Array<string>;
 

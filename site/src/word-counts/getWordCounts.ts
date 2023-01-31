@@ -1,6 +1,6 @@
 import { removeStopwords } from "stopword";
-import data from "../data";
-import { filterData, FilterState } from "../filters";
+import data from "../shared/data";
+import { filterData, FilterState } from "../shared/filters";
 
 export default function getWordCounts(filters: FilterState) {
   return new Promise((resolve) => setTimeout(resolve, 10))

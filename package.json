@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "case1": "node ./case1/index.js",
-    "case2": "node ./case2/index.js"
+    "case2": "node ./case2/index.js",
+    "case2:web": "node ./case2/buildWeb.js"
   },
   "devDependencies": {
     "jsdom": "^20.0.3",

@@ -15,9 +15,10 @@ import getVocabularySize from "./getVocabularySize";
 
 type VocabularySizeItem = {
   key: string;
-  size: number;
+  distinct: number;
   rank: number;
   speaker: string;
+  total: number;
 };
 
 export default function WordCount() {
@@ -29,7 +30,8 @@ export default function WordCount() {
   const columns = [
     { name: "Rank", key: "rank" },
     { name: "Speaker", key: "speaker" },
-    { name: "Vocabulary size", key: "size" },
+    { name: "Vocabulary size", key: "distinct" },
+    { name: "Total words spoken", key: "total" },
   ];
 
   useEffect(() => {
@@ -61,9 +63,13 @@ export default function WordCount() {
           {(item) => (
             <Row>
               {(columnKey) => {
-                if (columnKey === "size") {
+                if (["distinct", "total"].includes(columnKey as string)) {
                   return (
-                    <Cell>{Number(item[columnKey]).toLocaleString()}</Cell>
+                    <Cell>
+                      {Number(
+                        item[columnKey as "total" | "distinct"]
+                      ).toLocaleString()}
+                    </Cell>
                   );
                 }
 
@@ -77,4 +83,4 @@ export default function WordCount() {
   );
 }
 
-type ColumnKey = "speaker" | "size" | "rank";
+type ColumnKey = "speaker" | "total" | "distinct" | "rank";

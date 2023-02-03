@@ -7,32 +7,36 @@ export default function getVocabularySize() {
 }
 
 function getCountOfWordsPerSpeaker(talks: typeof data) {
-  const distinctWordsBySpeaker = talks.reduce<Record<string, string[]>>(
-    (acc, talk) => {
-      const content = (talk.content || "")
-        .replaceAll(/[^a-zA-Z-' ]/gi, "")
-        .replaceAll("\n", "")
-        .toLowerCase();
-      const words = content.split(" ");
-      const distinctWords = Array.from(
-        new Set((acc[talk.speaker] || []).concat(words))
-      );
-      acc[talk.speaker] = distinctWords;
-      return acc;
-    },
-    {}
-  );
+  const wordsBySpeaker = talks.reduce<
+    Record<string, { distinctWords: string[]; totalWordCount: number }>
+  >((acc, talk) => {
+    const previous = acc[talk.speaker];
 
-  return Object.keys(distinctWordsBySpeaker).map((speaker) => ({
+    const content = (talk.content || "")
+      .replaceAll(/[^a-zA-Z-'’ ]/gi, " ")
+      .toLowerCase();
+    const words = content.split(" ").filter((word) => word.length > 2);
+
+    const wordCount = (previous?.totalWordCount || 0) + words.length;
+    const distinctWords = Array.from(
+      new Set((previous?.distinctWords || []).concat(words))
+    );
+
+    acc[talk.speaker] = { distinctWords, totalWordCount: wordCount };
+    return acc;
+  }, {});
+
+  return Object.keys(wordsBySpeaker).map((speaker) => ({
     key: speaker,
     speaker,
-    size: distinctWordsBySpeaker[speaker].length,
+    distinct: wordsBySpeaker[speaker].distinctWords.length,
+    total: wordsBySpeaker[speaker].totalWordCount,
   }));
 }
 
 function orderByFrequency(sizes: ReturnType<typeof getCountOfWordsPerSpeaker>) {
   return sizes
-    .sort((a, b) => b.size - a.size)
+    .sort((a, b) => b.distinct - a.distinct)
     .map((size, index) => ({
       ...size,
       rank: index + 1,

@@ -40,13 +40,15 @@ test("calculates the correct vocabulary size", async () => {
     {
       key: "Speaker A",
       speaker: "Speaker A",
-      size: 8,
+      distinct: 8,
+      total: 15,
       rank: 1,
     },
     {
       key: "Speaker B",
       speaker: "Speaker B",
-      size: 5,
+      distinct: 5,
+      total: 6,
       rank: 2,
     },
   ]);

@@ -19,7 +19,7 @@ type WordCountItem = {
   key: string;
   count: number;
   rank: number;
-  _word: string;
+  label: string;
 };
 
 export default function WordCount() {
@@ -31,7 +31,7 @@ export default function WordCount() {
 
   const columns = [
     { name: "Rank", key: "rank" },
-    { name: "Word", key: "_word" },
+    { name: "Word", key: "label" },
     { name: "Count", key: "count" },
   ];
 
@@ -91,4 +91,4 @@ export default function WordCount() {
   );
 }
 
-type ColumnKey = "_word" | "count";
+type ColumnKey = "label" | "count";

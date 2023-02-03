@@ -12,10 +12,10 @@ export default function getWordCounts(filters: FilterState) {
 function getAllWords(talks: ReturnType<typeof filterData>) {
   return talks
     .map((talk) => talk.content || "")
-    .map((talk) => talk.replaceAll(/[^a-zA-Z-' ]/gi, ""))
+    .map((talk) => talk.replaceAll(/[^a-zA-Z-'’ ]/gi, " "))
     .join(" ")
-    .replaceAll("\n", "")
-    .split(" ");
+    .split(" ")
+    .filter((word) => word.length > 2);
 }
 
 function orderByFrequency(words: Array<string>, limit: number) {
@@ -29,13 +29,51 @@ function orderByFrequency(words: Array<string>, limit: number) {
     {}
   );
 
-  return Object.keys(frequencyMap)
-    .sort((a, b) => frequencyMap[b] - frequencyMap[a])
+  const insensitiveFrequencyMap = combineStemmedWords(frequencyMap);
+
+  return Object.keys(insensitiveFrequencyMap)
+    .sort(
+      (a, b) =>
+        insensitiveFrequencyMap[b].count - insensitiveFrequencyMap[a].count
+    )
     .slice(0, limit)
-    .map((word, index) => ({
-      key: word,
+    .map((key, index) => ({
+      key,
       rank: index + 1,
-      _word: word,
-      count: frequencyMap[word],
+      label: getShortLabel(insensitiveFrequencyMap[key].words),
+      count: insensitiveFrequencyMap[key].count,
     }));
+}
+
+type WordMap = {
+  words: string[];
+  count: number;
+};
+
+function combineStemmedWords(object: Record<string, number>) {
+  const newObject: Record<string, WordMap> = {};
+
+  Object.keys(object).forEach((word) => {
+    const key = word.toLowerCase();
+
+    let existingKey = newObject[key];
+
+    if (existingKey) {
+      existingKey.words.push(word);
+      existingKey.count += object[word];
+    }
+
+    if (!existingKey) {
+      newObject[key] = {
+        words: [word],
+        count: object[word],
+      };
+    }
+  });
+
+  return newObject;
+}
+
+function getShortLabel(words: string[]) {
+  return words[0];
 }

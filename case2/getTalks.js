@@ -7,22 +7,18 @@ import { BASE_URL } from "./constants.js";
 const MAX_ATTEMPTS = 5;
 
 export default async function getTalks(year, month) {
-  const indexUrl = `${BASE_URL}/study/general-conference/${year}/${month}?lang=eng`;
-  console.info("Fetching ", indexUrl);
+  const talkListing = getTalkListingForConference(year, month);
 
-  const contents = await getTextFromUrl(indexUrl);
-  const dom = new JSDOM(contents);
-
-  const talks = getTalksInDOM(dom)
+  const talks = talkListing
     .filter(filterSessionBreakouts)
     .map((talk) => ({ ...talk, month, year }))
     .map(getTalkContent);
 
-  return Promise.all(talks).then((talks) => {
-    const fileName = `case2/output/${year}-${month}.json`;
-    writeFileSync(fileName, JSON.stringify(talks, null, 4));
-    console.info(`\n${fileName} is written`);
-  });
+  const fileName = `case2/output/${year}-${month}.json`;
+
+  return Promise.all(talks)
+    .then((talks) => writeFileSync(fileName, JSON.stringify(talks, null, 4)))
+    .then(() => console.info(`\n${fileName} is written`));
 }
 
 function getTextFromUrl(url, attempts = 0) {
@@ -40,7 +36,18 @@ function getTextFromUrl(url, attempts = 0) {
     });
 }
 
-function getTalksInDOM(dom) {
+async function getTalkListingForConference(year, month) {
+  const indexUrl = `${BASE_URL}/study/general-conference/${year}/${month}?lang=eng`;
+  console.info("Fetching ", indexUrl);
+
+  const contents = await getTextFromUrl(indexUrl);
+
+  return extractTalkListingsFromDOM(contents);
+}
+
+export function extractTalkListingsFromDOM(string) {
+  const dom = new JSDOM(string);
+
   return Array.from(dom.window.document.querySelectorAll("li a p.title")).map(
     (n) => {
       const title = n.textContent;
@@ -64,15 +71,9 @@ async function getTalkContent(talk) {
     const content = await getTextFromUrl(talk.url);
     console.info(`Fetched: ${talk.url}`);
 
-    const dom = new JSDOM(content);
-    const cleanedText = stripHtml(
-      dom.window.document.querySelector(".body-block").innerHTML,
-      config
-    ).result;
-
     return {
       ...talk,
-      content: cleanedText,
+      content: extractTalkContent(content),
     };
   } catch (error) {
     console.info("Failed to get talk content for ", JSON.stringify(talk));
@@ -82,12 +83,22 @@ async function getTalkContent(talk) {
   return talk;
 }
 
+export function extractTalkContent(string) {
+  const dom = new JSDOM(string);
+  const cleanedText = stripHtml(
+    dom.window.document.querySelector(".body-block").innerHTML,
+    config
+  ).result;
+
+  return cleanedText;
+}
+
 const config = {
   stripTogetherWithTheirContents: [
     "script",
     "style",
     "xml",
-    "a",
+    "sup",
     "figure",
     "cite",
   ],

@@ -13,6 +13,7 @@ export default function Header() {
       backgroundColor="static-gray-200"
       minWidth="size-900"
       padding="size-100"
+      overflow="auto"
     >
       <Flex alignItems="center" gap="size-300" marginStart="size-150">
         <Link UNSAFE_style={{ color: "#222", textDecoration: "none" }}>

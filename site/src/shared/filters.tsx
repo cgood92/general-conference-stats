@@ -80,3 +80,7 @@ export function filterData(_data: typeof data, filters: FilterState) {
     return validSpeaker && validYear && talk.content;
   });
 }
+
+export function buildYearsArray(start: number, end: number) {
+  return new Array(end - start + 1).fill(null).map((_, index) => start + index);
+}

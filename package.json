@@ -6,9 +6,11 @@
   "scripts": {
     "case1": "node ./case1/index.js",
     "case2": "node ./case2/index.js",
-    "case2:web": "node ./case2/buildWeb.js"
+    "case2:web": "node ./case2/buildWeb.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "devDependencies": {
+    "jest": "29.4.2",
     "jsdom": "^20.0.3",
     "node-fetch": "^3.3.0",
     "prettier": "2.8.3",

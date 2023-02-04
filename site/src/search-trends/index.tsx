@@ -3,7 +3,7 @@ import { Flex, View } from "@adobe/react-spectrum";
 import ApexChart from "react-apexcharts";
 import Crunching from "../shared/crunching";
 import EmptySearch from "./emptySearch";
-import Filters from "../shared/filters";
+import Filters, { buildYearsArray } from "../shared/filters";
 import { getChartOptions } from "../shared/getChartOptions";
 import { getSearchResults, getTrendData, SearchResult } from "./getTrendData";
 import SearchBar from "./searchBar";
@@ -19,10 +19,7 @@ export default function SearchTrends() {
   const [searchResults, setSearchResults] = useState<SearchResult[][]>([]);
 
   const yearsArray = useMemo(
-    () =>
-      new Array(filters.years.end - filters.years.start)
-        .fill(null)
-        .map((_, index) => filters.years.start + index),
+    () => buildYearsArray(filters.years.start, filters.years.end),
     [filters.years.end, filters.years.start]
   );
 

@@ -90,7 +90,6 @@ export default function Home() {
       </Heading>
       <ol>
         <li>Get link tags working</li>
-        <li>Research vocabulary size per speaker</li>
         <li>Explore more ideas</li>
       </ol>
       <Heading id="can-you-help" level={2}>

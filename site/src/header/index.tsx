@@ -39,7 +39,7 @@ export default function Header() {
         </Link>
         <Divider orientation="vertical" size="M" />
         <Link>
-          <NavLink to="/list-of-talks">List of talks</NavLink>
+          <NavLink to="/methodology">Methodology</NavLink>
         </Link>
       </Flex>
     </View>

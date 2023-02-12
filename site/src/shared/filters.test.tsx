@@ -4,9 +4,10 @@ function createTalk(year: number, speaker: string, content: string) {
   return {
     speaker,
     title: "Title 1",
+    session: "Session A",
     url: "https://",
     year,
-    month: 4,
+    month: "04",
     content,
   };
 }

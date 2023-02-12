@@ -3,14 +3,15 @@ import fetch from "node-fetch";
 import { JSDOM } from "jsdom";
 import { stripHtml } from "string-strip-html";
 import { BASE_URL } from "./constants.js";
+import filterValidTalks from "./filterValidTalks.js";
 
 const MAX_ATTEMPTS = 5;
 
 export default async function getTalks(year, month) {
-  const talkListing = getTalkListingForConference(year, month);
+  const talkListing = await getTalkListingForConference(year, month);
 
   const talks = talkListing
-    .filter(filterSessionBreakouts)
+    .filter(filterValidTalks)
     .map((talk) => ({ ...talk, month, year }))
     .map(getTalkContent);
 
@@ -60,10 +61,6 @@ export function extractTalkListingsFromDOM(string) {
       return { session, speaker, title, url };
     }
   );
-}
-
-function filterSessionBreakouts(talk) {
-  return !talk.title.includes("Session");
 }
 
 async function getTalkContent(talk) {

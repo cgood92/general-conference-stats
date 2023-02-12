@@ -1,6 +1,6 @@
 import React from "react";
 import { ComboBox, Flex, Item, RangeSlider } from "@adobe/react-spectrum";
-import data, { speakers } from "./data";
+import data from "./data";
 
 export type FilterState = {
   speaker: string;
@@ -55,9 +55,8 @@ export default function Filters({ onChange, value }: FiltersProps) {
   );
 }
 
-const speakersArray = Object.values(speakers)
-  // TODO: we shouldn't have any without speakers...
-  .filter(Boolean)
+const speakersArray = data
+  .map((talk) => talk.speaker)
   .sort()
   .map((key) => ({ key: key as string, label: key as string }));
 speakersArray.unshift({ key: "", label: "All Speakers" });
@@ -76,8 +75,7 @@ export function filterData(_data: typeof data, filters: FilterState) {
     const validYear =
       talk.year <= filters.years.end && talk.year >= filters.years.start;
 
-    // TODO: Shouldn't need to filter content here, should always be available
-    return validSpeaker && validYear && talk.content;
+    return validSpeaker && validYear;
   });
 }
 

@@ -12,8 +12,7 @@ export default function usePageTracking() {
 
   useEffect(() => {
     window.gtag("event", "page_view", {
-      page_path: location.pathname,
-      page_search: location.search,
+      page_location: location.pathname + location.search,
     });
   }, [location.pathname, location.search]);
 }

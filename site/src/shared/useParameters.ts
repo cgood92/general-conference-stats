@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import { FilterState, maxYear, minYear } from "./filters";
@@ -58,6 +58,22 @@ export default function useParameters() {
       }),
     [setSearchParams]
   );
+
+  useEffect(() => {
+    if (memoizedSearchTerms.length) {
+      window.gtag("event", "search", {
+        search_term: memoizedSearchTerms.join("/"),
+        speaker: filters.speaker,
+        yearStart: filters.years.start,
+        yearEnd: filters.years.end,
+      });
+    }
+  }, [
+    filters.speaker,
+    filters.years.end,
+    filters.years.start,
+    memoizedSearchTerms,
+  ]);
 
   return {
     filters,

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 
 import { FilterState, maxYear, minYear } from "./filters";
 
@@ -59,9 +59,25 @@ export default function useParameters() {
     [setSearchParams]
   );
 
+  useSearchTracking(memoizedSearchTerms, filters);
+
+  return {
+    filters,
+    setFilters,
+    searchTerms: memoizedSearchTerms,
+    setSearchTerms,
+  };
+}
+
+function useSearchTracking(
+  memoizedSearchTerms: string[],
+  filters: { speaker: string; years: { start: number; end: number } }
+) {
+  const location = useLocation();
   useEffect(() => {
     if (memoizedSearchTerms.length) {
       window.gtag("event", "search", {
+        page_location: location.pathname + location.search,
         search_term: memoizedSearchTerms.join("/"),
         speaker: filters.speaker,
         yearStart: filters.years.start,
@@ -72,13 +88,8 @@ export default function useParameters() {
     filters.speaker,
     filters.years.end,
     filters.years.start,
+    location.pathname,
+    location.search,
     memoizedSearchTerms,
   ]);
-
-  return {
-    filters,
-    setFilters,
-    searchTerms: memoizedSearchTerms,
-    setSearchTerms,
-  };
 }

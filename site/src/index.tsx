@@ -6,11 +6,16 @@ import Layout from "./layout";
 import Loading from "./loading";
 import "./index.css";
 
-const Growth = React.lazy(() => import("./growth"));
-const WordCounts = React.lazy(() => import("./word-counts"));
-const SearchTrends = React.lazy(() => import("./search-trends"));
-const Methodology = React.lazy(() => import("./methodology"));
-const VocabularySize = React.lazy(() => import("./vocabulary-size"));
+const growthImport = import("./growth");
+const Growth = React.lazy(() => growthImport);
+const wordCountsImport = import("./word-counts");
+const WordCounts = React.lazy(() => wordCountsImport);
+const searchTrendsImport = import("./search-trends");
+const SearchTrends = React.lazy(() => searchTrendsImport);
+const methodologyImport = import("./methodology");
+const Methodology = React.lazy(() => methodologyImport);
+const vocabularySizeImport = import("./vocabulary-size");
+const VocabularySize = React.lazy(() => vocabularySizeImport);
 
 const router = createHashRouter([
   {

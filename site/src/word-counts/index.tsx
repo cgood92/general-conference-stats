@@ -8,6 +8,7 @@ import {
   TableBody,
   TableHeader,
   View,
+  Header,
 } from "@adobe/react-spectrum";
 import Crunching from "../shared/crunching";
 import Filters from "../shared/filters";
@@ -48,8 +49,9 @@ export default function WordCount() {
   }
 
   return (
-    <Flex direction={{ base: "column-reverse", L: "row" }}>
-      <View height="100%" width={{ base: "100%", L: "85%" }}>
+    <View height="100%">
+      <Header>Frequency of words found in General Conference talks.</Header>
+      <Flex justifyContent="space-between">
         <p className="stop-words">
           * Note that some{" "}
           <a
@@ -61,33 +63,33 @@ export default function WordCount() {
           </a>{" "}
           are being filtered out
         </p>
-        <TableView
-          aria-label="Word count table"
-          marginTop="size-100"
-          density="compact"
-        >
-          <TableHeader columns={columns}>
-            {(column) => <Column>{column.name}</Column>}
-          </TableHeader>
-          <TableBody items={wordCountArray}>
-            {(item) => (
-              <Row>
-                {(columnKey) => {
-                  if (columnKey === "count") {
-                    return (
-                      <Cell>{Number(item[columnKey]).toLocaleString()}</Cell>
-                    );
-                  }
+        <Filters onChange={setFilters} value={filters} />
+      </Flex>
+      <TableView
+        aria-label="Word count table"
+        marginTop="size-100"
+        density="compact"
+      >
+        <TableHeader columns={columns}>
+          {(column) => <Column>{column.name}</Column>}
+        </TableHeader>
+        <TableBody items={wordCountArray}>
+          {(item) => (
+            <Row>
+              {(columnKey) => {
+                if (columnKey === "count") {
+                  return (
+                    <Cell>{Number(item[columnKey]).toLocaleString()}</Cell>
+                  );
+                }
 
-                  return <Cell>{item[columnKey as ColumnKey]}</Cell>;
-                }}
-              </Row>
-            )}
-          </TableBody>
-        </TableView>
-      </View>
-      <Filters onChange={setFilters} value={filters} />
-    </Flex>
+                return <Cell>{item[columnKey as ColumnKey]}</Cell>;
+              }}
+            </Row>
+          )}
+        </TableBody>
+      </TableView>
+    </View>
   );
 }
 

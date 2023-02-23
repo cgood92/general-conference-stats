@@ -3,3 +3,6 @@ a:not(:first-of-type).active {
     text-decoration: none !important;
     color: #222 !important;
 }
+a {
+    text-align: center;
+}

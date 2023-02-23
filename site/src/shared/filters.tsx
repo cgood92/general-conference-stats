@@ -1,5 +1,16 @@
 import React from "react";
-import { ComboBox, Flex, Item, RangeSlider } from "@adobe/react-spectrum";
+import {
+  ActionButton,
+  ComboBox,
+  Content,
+  Dialog,
+  DialogTrigger,
+  Form,
+  Heading,
+  Item,
+  RangeSlider,
+} from "@adobe/react-spectrum";
+import FilterIcon from "@spectrum-icons/workflow/Filter";
 import data from "./data";
 
 export type FilterState = {
@@ -14,44 +25,51 @@ type FiltersProps = {
 
 export default function Filters({ onChange, value }: FiltersProps) {
   return (
-    <Flex
-      alignItems={{ base: "end", L: "start" }}
-      direction={{ base: "row", L: "column" }}
-      gap="size-300"
-      marginStart="auto"
-      marginX={{ base: "0", L: "size-300" }}
-      width={{ base: "100%", L: "15%" }}
+    <DialogTrigger
+      type="popover"
+      mobileType="tray"
+      hideArrow
+      placement="bottom right"
     >
-      <ComboBox
-        defaultItems={speakersArray}
-        defaultSelectedKey={value.speaker}
-        label="Speaker"
-        onSelectionChange={(speaker) =>
-          onChange({
-            ...value,
-            speaker: speaker as string,
-          })
-        }
-        width={{ base: "0", L: "100%" }}
-      >
-        {(speaker) => <Item key={speaker.key}>{speaker.label}</Item>}
-      </ComboBox>
-
-      <RangeSlider
-        defaultValue={value.years}
-        getValueLabel={(years) => `${years.start} - ${years.end}`}
-        label="Years"
-        minValue={minYear}
-        maxValue={maxYear}
-        onChangeEnd={(years) =>
-          onChange({
-            ...value,
-            years,
-          })
-        }
-        width={{ base: "0", L: "100%" }}
-      />
-    </Flex>
+      <ActionButton isQuiet aria-label="Filters">
+        <FilterIcon />
+      </ActionButton>
+      <Dialog>
+        <Content>
+          <Form>
+            <Heading level={3}>Filters</Heading>
+            <ComboBox
+              defaultItems={speakersArray}
+              defaultSelectedKey={value.speaker}
+              label="Speaker"
+              onSelectionChange={(speaker) =>
+                onChange({
+                  ...value,
+                  speaker: speaker as string,
+                })
+              }
+              width="0"
+            >
+              {(speaker) => <Item key={speaker.key}>{speaker.label}</Item>}
+            </ComboBox>
+            <RangeSlider
+              defaultValue={value.years}
+              getValueLabel={(years) => `${years.start} - ${years.end}`}
+              label="Years"
+              minValue={minYear}
+              maxValue={maxYear}
+              onChangeEnd={(years) =>
+                onChange({
+                  ...value,
+                  years,
+                })
+              }
+              width="0"
+            />
+          </Form>
+        </Content>
+      </Dialog>
+    </DialogTrigger>
   );
 }
 

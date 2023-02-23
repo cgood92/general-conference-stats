@@ -20,7 +20,7 @@ export default function Layout({ children }: LayoutProps) {
             base: "size-50",
             L: "10%",
           }}
-          paddingY="size-200"
+          paddingY="size-50"
           UNSAFE_style={{ overflow: "auto" }}
         >
           {children}

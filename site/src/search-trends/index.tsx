@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Flex, View } from "@adobe/react-spectrum";
 import ApexChart from "react-apexcharts";
 import Crunching from "../shared/crunching";
@@ -9,6 +9,7 @@ import { getSearchResults, getTrendData, SearchResult } from "./getTrendData";
 import SearchBar from "./searchBar";
 import SearchResultsTable from "./SearchResultsTable";
 import useParameters from "../shared/useParameters";
+import SearchTips from "./SearchTips";
 
 type Series = { name: string; data: Array<number> };
 
@@ -17,6 +18,7 @@ export default function SearchTrends() {
   const [loading, setLoading] = useState(true);
   const [series, setSeries] = useState<Array<Series>>([]);
   const [searchResults, setSearchResults] = useState<SearchResult[][]>([]);
+  const hasSearchedRef = useRef(false);
 
   const yearsArray = useMemo(
     () => buildYearsArray(filters.years.start, filters.years.end),
@@ -29,6 +31,8 @@ export default function SearchTrends() {
       setLoading(false);
       return;
     }
+
+    hasSearchedRef.current = true;
 
     getSearchResults(filters, searchTerms).then((searchResults) => {
       setSearchResults(searchResults);
@@ -45,12 +49,31 @@ export default function SearchTrends() {
 
   const options = getChartOptions({ searchTerms, yearsArray });
   const searchResultsKey = searchTerms.join("-") + searchResults.length;
+  const hasSearched = hasSearchedRef.current;
 
   return (
-    <Flex height="100%" direction="column">
-      <SearchBar searchTerms={searchTerms} setSearchTerms={setSearchTerms} />
-      <Flex direction={{ base: "column-reverse", L: "row" }}>
-        <View height="100%" width={{ base: "100%", L: "85%" }}>
+    <>
+      <Flex
+        height={{ base: "auto", L: hasSearched ? "auto" : "100%" }}
+        alignItems="center"
+      >
+        <Flex
+          width={{ base: "100%", L: "size-6000" }}
+          direction="column"
+          margin={!hasSearched ? "auto" : undefined}
+        >
+          <Flex justifyContent="space-between" marginBottom="size-50">
+            <SearchTips />
+            <Filters onChange={setFilters} value={filters} />
+          </Flex>
+          <SearchBar
+            searchTerms={searchTerms}
+            setSearchTerms={setSearchTerms}
+          />
+        </Flex>
+      </Flex>
+      {hasSearched && (
+        <View height="100%" width="100%">
           {searchTerms.length === 0 ? (
             <EmptySearch />
           ) : (
@@ -65,8 +88,7 @@ export default function SearchTrends() {
             </>
           )}
         </View>
-        <Filters onChange={setFilters} value={filters} />
-      </Flex>
-    </Flex>
+      )}
+    </>
   );
 }

@@ -23,15 +23,15 @@ export default function Header() {
         </Link>
         <Divider orientation="vertical" size="M" />
         <Link>
-          <NavLink to="/growth">Growth charts</NavLink>
-        </Link>
-        <Divider orientation="vertical" size="M" />
-        <Link>
           <NavLink to="/word-counts">Word counts</NavLink>
         </Link>
         <Divider orientation="vertical" size="M" />
         <Link>
           <NavLink to="/search-trends">Search trends</NavLink>
+        </Link>
+        <Divider orientation="vertical" size="M" />
+        <Link>
+          <NavLink to="/growth">Growth charts</NavLink>
         </Link>
         <Divider orientation="vertical" size="M" />
         <Link>

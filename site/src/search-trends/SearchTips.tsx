@@ -5,13 +5,18 @@ import {
   Flex,
   Heading,
   Text,
-  Well,
 } from "@adobe/react-spectrum";
+import FilterIcon from "@spectrum-icons/workflow/Filter";
+import "./SearchTips.css";
 
 export default function SearchTips() {
   return (
     <Flex alignItems="center">
-      <ContextualHelp containerPadding={0} variant="help">
+      <ContextualHelp
+        containerPadding={0}
+        variant="help"
+        UNSAFE_className="searchTips"
+      >
         <Heading>Search tips</Heading>
         <Content>
           <p>
@@ -23,11 +28,17 @@ export default function SearchTips() {
             If you want just the word "eve" by itself, include spaces around the
             term (ie " eve ").
           </p>
+          <p>
+            You can use the filter button <FilterIcon size="XS" /> to narrow
+            results down by speaker or year.
+          </p>
           <p>RegEx allows you to do special searches. For example:</p>
-          <Well>(brothers|brethren)</Well>
-          <Well>great( and last)? day</Well>
-          <Well>Ne.son</Well>
-          <Well>Elder [a-zA-Z]+</Well>
+          <ul>
+            <li>(brothers|brethren)</li>
+            <li>great( and last)? day</li>
+            <li>Ne.son</li>
+            <li>Elder [a-zA-Z]+</li>
+          </ul>
           <p>
             Learn more about RegEx{" "}
             <a href="https://regexone.com/" rel="noreferrer" target="_blank">

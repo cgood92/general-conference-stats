@@ -50,7 +50,7 @@ export default function WordCount() {
 
   return (
     <View height="100%">
-      <Header>Frequency of words found in General Conference talks.</Header>
+      <Header>Word counts in conference talks.</Header>
       <Flex justifyContent="space-between">
         <p className="stop-words">
           * Note that some{" "}

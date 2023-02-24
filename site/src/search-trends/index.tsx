@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { Flex, View } from "@adobe/react-spectrum";
+import { Flex, Provider, View, Well } from "@adobe/react-spectrum";
 import ApexChart from "react-apexcharts";
 import Crunching from "../shared/crunching";
 import EmptySearch from "./emptySearch";
@@ -62,14 +62,30 @@ export default function SearchTrends() {
           direction="column"
           margin={!hasSearched ? "auto" : undefined}
         >
-          <Flex justifyContent="space-between" marginBottom="size-50">
-            <SearchTips />
-            <Filters onChange={setFilters} value={filters} />
-          </Flex>
-          <SearchBar
-            searchTerms={searchTerms}
-            setSearchTerms={setSearchTerms}
-          />
+          <Provider
+            scale={hasSearched ? "medium" : "large"}
+            UNSAFE_className="white"
+          >
+            <Flex justifyContent="space-between" marginBottom="size-50">
+              <SearchTips />
+              <Filters onChange={setFilters} value={filters} />
+            </Flex>
+            <SearchBar
+              searchTerms={searchTerms}
+              setSearchTerms={setSearchTerms}
+            />
+            {!hasSearched && (
+              <Well>
+                Try searching for words or phrases that were used in General
+                Conference throughout the years, such as:
+                <ul>
+                  <li>covenant path</li>
+                  <li>tithing</li>
+                  <li>word of wisdom</li>
+                </ul>
+              </Well>
+            )}
+          </Provider>
         </Flex>
       </Flex>
       {hasSearched && (

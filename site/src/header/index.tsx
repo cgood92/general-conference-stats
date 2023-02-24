@@ -12,7 +12,7 @@ export default function Header() {
     <View
       backgroundColor="static-gray-200"
       minWidth="size-900"
-      padding="size-100"
+      padding={{ base: "size-25", L: "size-100" }}
       overflow="auto"
     >
       <Flex alignItems="center" gap="size-300" marginStart="size-150">

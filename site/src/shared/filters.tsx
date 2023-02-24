@@ -37,7 +37,9 @@ export default function Filters({ onChange, value }: FiltersProps) {
       <Dialog>
         <Content>
           <Form>
-            <Heading level={3}>Filters</Heading>
+            <Heading level={3} marginBottom="size-100">
+              Filters
+            </Heading>
             <ComboBox
               defaultItems={speakersArray}
               defaultSelectedKey={value.speaker}
@@ -48,7 +50,7 @@ export default function Filters({ onChange, value }: FiltersProps) {
                   speaker: speaker as string,
                 })
               }
-              width="0"
+              marginBottom="size-100"
             >
               {(speaker) => <Item key={speaker.key}>{speaker.label}</Item>}
             </ComboBox>
@@ -64,7 +66,7 @@ export default function Filters({ onChange, value }: FiltersProps) {
                   years,
                 })
               }
-              width="0"
+              width="100%"
             />
           </Form>
         </Content>
@@ -73,8 +75,7 @@ export default function Filters({ onChange, value }: FiltersProps) {
   );
 }
 
-const speakersArray = data
-  .map((talk) => talk.speaker)
+const speakersArray = Array.from(new Set(data.map((talk) => talk.speaker)))
   .sort()
   .map((key) => ({ key: key as string, label: key as string }));
 speakersArray.unshift({ key: "", label: "All Speakers" });

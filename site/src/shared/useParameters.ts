@@ -75,9 +75,14 @@ function useSearchTracking(
 ) {
   const location = useLocation();
   useEffect(() => {
-    if (memoizedSearchTerms.length) {
+    const searchIsActive =
+      location.pathname === "/search-trends" && memoizedSearchTerms.length;
+    const filterWordCountsActive =
+      location.pathname === "/word-counts" && location.search;
+
+    if (searchIsActive || filterWordCountsActive) {
       window.gtag("event", "search", {
-        page_location: location.pathname + location.search,
+        page_location: location.pathname,
         search_term: memoizedSearchTerms.join("/"),
         speaker: filters.speaker,
         yearStart: filters.years.start,

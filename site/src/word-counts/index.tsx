@@ -44,10 +44,6 @@ export default function WordCount() {
     });
   }, [filters]);
 
-  if (loading) {
-    return <Crunching />;
-  }
-
   return (
     <View height="100%">
       <Header>Word counts in conference talks.</Header>
@@ -65,30 +61,34 @@ export default function WordCount() {
         </p>
         <Filters onChange={setFilters} value={filters} />
       </Flex>
-      <TableView
-        aria-label="Word count table"
-        marginTop="size-100"
-        density="compact"
-      >
-        <TableHeader columns={columns}>
-          {(column) => <Column>{column.name}</Column>}
-        </TableHeader>
-        <TableBody items={wordCountArray}>
-          {(item) => (
-            <Row>
-              {(columnKey) => {
-                if (columnKey === "count") {
-                  return (
-                    <Cell>{Number(item[columnKey]).toLocaleString()}</Cell>
-                  );
-                }
+      {loading ? (
+        <Crunching />
+      ) : (
+        <TableView
+          aria-label="Word count table"
+          marginTop="size-100"
+          density="compact"
+        >
+          <TableHeader columns={columns}>
+            {(column) => <Column>{column.name}</Column>}
+          </TableHeader>
+          <TableBody items={wordCountArray}>
+            {(item) => (
+              <Row>
+                {(columnKey) => {
+                  if (columnKey === "count") {
+                    return (
+                      <Cell>{Number(item[columnKey]).toLocaleString()}</Cell>
+                    );
+                  }
 
-                return <Cell>{item[columnKey as ColumnKey]}</Cell>;
-              }}
-            </Row>
-          )}
-        </TableBody>
-      </TableView>
+                  return <Cell>{item[columnKey as ColumnKey]}</Cell>;
+                }}
+              </Row>
+            )}
+          </TableBody>
+        </TableView>
+      )}
     </View>
   );
 }

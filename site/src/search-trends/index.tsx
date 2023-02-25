@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Flex, Provider, View, Well } from "@adobe/react-spectrum";
 import ApexChart from "react-apexcharts";
-import Crunching from "../shared/crunching";
 import EmptySearch from "./emptySearch";
 import Filters, { buildYearsArray } from "../shared/filters";
 import { getChartOptions } from "../shared/getChartOptions";
@@ -15,7 +14,6 @@ type Series = { name: string; data: Array<number> };
 
 export default function SearchTrends() {
   const { filters, setFilters, searchTerms, setSearchTerms } = useParameters();
-  const [loading, setLoading] = useState(true);
   const [series, setSeries] = useState<Array<Series>>([]);
   const [searchResults, setSearchResults] = useState<SearchResult[][]>([]);
   const hasSearchedRef = useRef(false);
@@ -28,7 +26,6 @@ export default function SearchTrends() {
   useEffect(() => {
     if (searchTerms.length === 0) {
       setSearchResults([]);
-      setLoading(false);
       return;
     }
 
@@ -38,14 +35,9 @@ export default function SearchTrends() {
       setSearchResults(searchResults);
       getTrendData(searchResults, searchTerms, yearsArray).then((series) => {
         setSeries(series);
-        setLoading(false);
       });
     });
   }, [filters, searchTerms, yearsArray]);
-
-  if (loading) {
-    return <Crunching />;
-  }
 
   const options = getChartOptions({ searchTerms, yearsArray });
   const searchResultsKey = searchTerms.join("-") + searchResults.length;

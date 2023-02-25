@@ -15,11 +15,6 @@ import Trend from "./trend.svg";
 
 const links = [
   {
-    img: Growth,
-    title: "Growth",
-    to: "/growth",
-  },
-  {
     img: Table,
     title: "Word count",
     to: "/word-counts",
@@ -28,6 +23,11 @@ const links = [
     img: Trend,
     title: "Search trends",
     to: "/search-trends",
+  },
+  {
+    img: Growth,
+    title: "Growth",
+    to: "/growth",
   },
   {
     img: Speaker,

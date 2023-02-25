@@ -47,7 +47,7 @@ export default function Filters({ onChange, value }: FiltersProps) {
               onSelectionChange={(speaker) =>
                 onChange({
                   ...value,
-                  speaker: speaker as string,
+                  speaker: (speaker || "") as string,
                 })
               }
               marginBottom="size-100"

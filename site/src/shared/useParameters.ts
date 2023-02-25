@@ -82,7 +82,7 @@ function useSearchTracking(
 
     if (searchIsActive || filterWordCountsActive) {
       window.gtag("event", "search", {
-        page_location: location.pathname,
+        page_location: location.pathname + location.search,
         search_term: memoizedSearchTerms.join("/"),
         speaker: filters.speaker,
         yearStart: filters.years.start,

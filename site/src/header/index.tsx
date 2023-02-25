@@ -41,6 +41,7 @@ export default function Header() {
         <Link>
           <NavLink to="/methodology">Methodology</NavLink>
         </Link>
+        <span>&nbsp;</span>
       </Flex>
     </View>
   );

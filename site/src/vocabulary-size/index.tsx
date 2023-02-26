@@ -12,6 +12,7 @@ import {
 } from "@adobe/react-spectrum";
 import Crunching from "../shared/crunching";
 import getVocabularySize from "./getVocabularySize";
+import useIsSmallScreen from "../shared/useIsSmallScreen";
 
 type VocabularySizeItem = {
   key: string;
@@ -21,18 +22,24 @@ type VocabularySizeItem = {
   total: number;
 };
 
+const allColumns = [
+  { name: "Rank", key: "rank" },
+  { name: "Speaker", key: "speaker" },
+  { name: "Vocabulary size", key: "distinct" },
+  { name: "Total words spoken", key: "total" },
+];
+
+const smallColumns = allColumns.slice(1);
+
+
 export default function WordCount() {
   const [loading, setLoading] = useState(true);
   const [vocabularySizeArray, setVocabularySizeArray] = useState<
     Array<VocabularySizeItem>
   >([]);
 
-  const columns = [
-    { name: "Rank", key: "rank" },
-    { name: "Speaker", key: "speaker" },
-    { name: "Vocabulary size", key: "distinct" },
-    { name: "Total words spoken", key: "total" },
-  ];
+  const isSmallScreen = useIsSmallScreen();
+  const columns = isSmallScreen ? smallColumns : allColumns;
 
   useEffect(() => {
     setLoading(true);

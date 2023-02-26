@@ -31,7 +31,7 @@ export default function WordCount() {
   );
 
   const columns = [
-    { name: "Rank", key: "rank" },
+    { name: "Rank", key: "rank", width: 90 },
     { name: "Word", key: "label" },
     { name: "Count", key: "count" },
   ];
@@ -47,7 +47,7 @@ export default function WordCount() {
   return (
     <View height="100%">
       <Header>Word counts in conference talks.</Header>
-      <Flex justifyContent="space-between">
+      <Flex justifyContent="space-between" maxWidth="size-6000">
         <p className="stop-words">
           * Note that some{" "}
           <a
@@ -68,9 +68,10 @@ export default function WordCount() {
           aria-label="Word count table"
           marginTop="size-100"
           density="compact"
+          maxWidth="size-6000"
         >
           <TableHeader columns={columns}>
-            {(column) => <Column>{column.name}</Column>}
+            {(column) => <Column width={column.width}>{column.name}</Column>}
           </TableHeader>
           <TableBody items={wordCountArray}>
             {(item) => (

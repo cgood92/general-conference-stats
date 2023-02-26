@@ -11,18 +11,27 @@ import { useAsyncList } from "react-stately";
 
 import { SearchResult } from "./getTrendData";
 import getSnippetFromResults from "./getSnippetFromResults";
+import useIsSmallScreen from "../shared/useIsSmallScreen";
 
 type SearchResultsTableProps = {
   data: SearchResult[][];
 };
 
+const allColumns = [
+  { name: "Talk", key: "talk", width: "25%" },
+  { name: "Speaker", key: "speaker", width: "15%" },
+  { name: "Year", key: "year", width: "5%" },
+  { name: "Search results", key: "snippet" },
+];
+
+const smallScreenColumns = [
+  { name: "Talk", key: "talk", width: "33%" },
+  { name: "Search results", key: "snippet" },
+];
+
 export default function SearchResultsTable({ data }: SearchResultsTableProps) {
-  const columns = [
-    { name: "Talk", key: "talk", width: "25%" },
-    { name: "Speaker", key: "speaker", width: "15%" },
-    { name: "Year", key: "year", width: "5%" },
-    { name: "Search results", key: "snippet" },
-  ];
+  const isSmallScreen = useIsSmallScreen();
+  const columns = isSmallScreen ? smallScreenColumns : allColumns;
 
   const list = useAsyncList({
     async load({ cursor }) {

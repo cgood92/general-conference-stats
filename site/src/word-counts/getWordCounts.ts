@@ -6,7 +6,7 @@ export default function getWordCounts(filters: FilterState) {
   return new Promise((resolve) => setTimeout(resolve, 10))
     .then(() => filterData(data, filters))
     .then((talks) => removeStopwords(getAllWords(talks)).filter(Boolean))
-    .then((words) => orderByFrequency(words, 300));
+    .then((words) => orderByFrequency(words, 500));
 }
 
 function getAllWords(talks: ReturnType<typeof filterData>) {

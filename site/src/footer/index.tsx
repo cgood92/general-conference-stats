@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "@adobe/react-spectrum";
+import { Link, View } from "@adobe/react-spectrum";
 
 export default function Footer() {
   return (
@@ -12,7 +12,15 @@ export default function Footer() {
       UNSAFE_style={{ fontSize: 12 }}
     >
       Open source project on{" "}
-      <a href="https://github.com/cgood92/general-conference-stats">GitHub</a>
+      <Link>
+        <a
+          href="https://github.com/cgood92/general-conference-stats"
+          target="_blank"
+          rel="noreferrer"
+        >
+          GitHub
+        </a>
+      </Link>
     </View>
   );
 }

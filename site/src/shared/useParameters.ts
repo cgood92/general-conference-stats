@@ -1,14 +1,7 @@
 import { useCallback, useEffect, useMemo } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 
-import { FilterState, maxYear, minYear } from "./filters";
-
-const defaultSearchParams = {
-  speaker: "",
-  start: String(minYear),
-  end: String(maxYear),
-  searchTerms: [],
-};
+import { defaultSearchParams, FilterState } from "./filters";
 
 export default function useParameters() {
   const [searchParams, setSearchParams] = useSearchParams(defaultSearchParams);

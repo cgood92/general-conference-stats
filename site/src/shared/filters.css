@@ -1,0 +1,12 @@
+.indicator {
+    border-radius: 9999px;
+    top: 0px;
+    left: 0.25rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 1);
+    background-color: rgba(20, 115, 230, 1);
+    width: 0.625rem;
+    height: 0.625rem;
+    position: absolute;
+}

@@ -12,6 +12,7 @@ import {
 } from "@adobe/react-spectrum";
 import FilterIcon from "@spectrum-icons/workflow/Filter";
 import data from "./data";
+import "./filters.css";
 
 export type FilterState = {
   speaker: string;
@@ -24,6 +25,8 @@ type FiltersProps = {
 };
 
 export default function Filters({ onChange, value }: FiltersProps) {
+  const isFilterActive = getIsFilterActive(value);
+
   return (
     <DialogTrigger
       type="popover"
@@ -33,6 +36,7 @@ export default function Filters({ onChange, value }: FiltersProps) {
     >
       <ActionButton isQuiet aria-label="Filters">
         <FilterIcon />
+        {isFilterActive && <Indicator />}
       </ActionButton>
       <Dialog>
         <Content>
@@ -83,6 +87,13 @@ speakersArray.unshift({ key: "", label: "All Speakers" });
 export const minYear = data[0].year;
 export const maxYear = data.slice(-1)[0].year;
 
+export const defaultSearchParams = {
+  speaker: "",
+  start: String(minYear),
+  end: String(maxYear),
+  searchTerms: [],
+};
+
 export function filterData(_data: typeof data, filters: FilterState) {
   return _data.filter((talk) => {
     let validSpeaker = true;
@@ -100,4 +111,16 @@ export function filterData(_data: typeof data, filters: FilterState) {
 
 export function buildYearsArray(start: number, end: number) {
   return new Array(end - start + 1).fill(null).map((_, index) => start + index);
+}
+
+function getIsFilterActive(currentFilters: FilterState) {
+  return (
+    defaultSearchParams.end !== String(currentFilters.years.end) ||
+    defaultSearchParams.start !== String(currentFilters.years.start) ||
+    defaultSearchParams.speaker !== currentFilters.speaker
+  );
+}
+
+function Indicator() {
+  return <div className="indicator"></div>;
 }

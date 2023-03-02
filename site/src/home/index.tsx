@@ -108,36 +108,34 @@ export default function Home() {
           well.
         </p>
         <p>
-          Using filters, you can see what the prophet{" "}
+          You can see what the prophet{" "}
           <Link>
             <RouterLink to="/word-counts?speaker=Russell+M.+Nelson&start=1971&end=2022">
-              Russell M. Nelson's focus has been
+              Russell M. Nelson talks about most
             </RouterLink>
           </Link>
-          . You can visualize for yourself how{" "}
+          , how{" "}
           <Link>
             <RouterLink to="/search-trends?speaker=&start=1971&end=2022&searchTerms=covenants">
               covenants
             </RouterLink>
           </Link>{" "}
-          are becoming increasingly talked about, how{" "}
-          <Link>
-            <RouterLink to="/search-trends?speaker=&start=1971&end=2022&searchTerms=homosexual&searchTerms=LGBT%28Q%29%3F">
-              homosexuality
-            </RouterLink>
-          </Link>{" "}
-          is not frequently mentioned, how{" "}
+          are becoming an increasing focus, and how{" "}
           <Link>
             <RouterLink to="/search-trends?speaker=&start=1971&end=2022&searchTerms=pornography">
               pornography
             </RouterLink>
           </Link>{" "}
-          was addressed during the rise of the internet, etc.
+          was addressed during the rise of the internet.
         </p>
         <p>
-          Mostly, this website is fun and for the curious. But, it does
-          reenforce the fact that, like the Book of Mormon, General Conference
-          is centered around Jesus Christ.
+          Mostly, this website is for fun and curiosity. But, it does reenforce
+          the fact that, like the Book of Mormon, General Conference is centered
+          around{" "}
+          <Link>
+            <RouterLink to="/word-counts">Jesus Christ</RouterLink>
+          </Link>
+          .
         </p>
       </Content>
     </View>

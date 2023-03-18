@@ -93,51 +93,108 @@ export default function Home() {
             </a>
           </Link>{" "}
           online tool that analyzes the past{" "}
-          <Link>
-            <RouterLink to="/methodology">
-              50 years of General Conference talks
-            </RouterLink>
-          </Link>{" "}
+          <StyledLink to="/methodology">
+            50 years of General Conference talks
+          </StyledLink>{" "}
           from the Church of Jesus Christ of Latter-day Saints. This website is
-          not specifically endorsed or associated with the church.
+          not endorsed by or associated with the church.
         </p>
         <p>
-          I originally wanted to see what were the common themes in the past
-          general conference. It eventually led to this website, which allows
-          you to not only see common words spoken, but search for trends as
-          well.
+          Using the <StyledLink to="/word-counts">word counts tool</StyledLink>,
+          you can see how General Conference consistently focuses on Jesus
+          Christ, families, love and faith. You can see that the prophet{" "}
+          <StyledLink
+            to={`/word-counts?speaker=${encodeURIComponent(
+              "Russell M. Nelson"
+            )}`}
+          >
+            Russell M. Nelson
+          </StyledLink>{" "}
+          gives special attention to temples.
         </p>
         <p>
-          You can see what the prophet{" "}
-          <Link>
-            <RouterLink to="/word-counts?speaker=Russell+M.+Nelson&start=1971&end=2022">
-              Russell M. Nelson talks about most
-            </RouterLink>
-          </Link>
-          , how{" "}
-          <Link>
-            <RouterLink to="/search-trends?speaker=&start=1971&end=2022&searchTerms=covenants">
-              covenants
-            </RouterLink>
-          </Link>{" "}
-          are becoming an increasing focus, and how{" "}
-          <Link>
-            <RouterLink to="/search-trends?speaker=&start=1971&end=2022&searchTerms=pornography">
-              pornography
-            </RouterLink>
-          </Link>{" "}
-          was addressed during the rise of the internet.
+          Using the{" "}
+          <StyledLink to="/search-trends">search trends tool</StyledLink>, you
+          can analyze trends of some words and phrases over the past 50 years.
+          While not of great importance, there were still some interesting
+          things I discovered.
         </p>
         <p>
-          Mostly, this website is for fun and curiosity. But, it does reenforce
-          the fact that, like the Book of Mormon, General Conference is centered
-          around{" "}
-          <Link>
-            <RouterLink to="/word-counts">Jesus Christ</RouterLink>
-          </Link>
-          .
+          By using linear regression, I was able to see a few long-term trends
+          in some words, such as:
+        </p>
+        <ul>
+          <li>
+            Terms used for deity have changed slightly. The term{" "}
+            {createTrendLink("Lord", [" Lord"])} and{" "}
+            {createTrendLink("God", [" God"])} trended downward, while{" "}
+            {createTrendLink("Jesus", [" Jesus"])},{" "}
+            {createTrendLink("Christ", [" Christ"])},{" "}
+            {createTrendLink("Savior", [" Savior"])}, and{" "}
+            {createTrendLink("Heavenly Father", ["Heavenly Father"])} have
+            trended upward.
+          </li>
+          <li>
+            Some terms that have trended downward include:{" "}
+            {createTrendLink("kingdom", [" kingdom "])},{" "}
+            {createTrendLink("prophet", [" prophet "])} and{" "}
+            {createTrendLink("earth", [" earth "])}.
+          </li>
+          <li>
+            Some terms that have trended upward include:{" "}
+            {createTrendLink("faith", [" faith "])},{" "}
+            {createTrendLink("covenants", [" covenants "])},{" "}
+            {createTrendLink("temple", [" temple"])},{" "}
+            {createTrendLink("atonement", [" atonement "])} and{" "}
+            {createTrendLink("help", [" help "])}.
+          </li>
+        </ul>
+        <p>
+          {createTrendLink("Second Coming", ["Second Coming"])},{" "}
+          {createTrendLink("tithing", ["tithing"])}, and{" "}
+          {createTrendLink("sabbath", ["sabbath"])} have spikes of usage.
+        </p>
+        <p>
+          It was a surprise to me that some terms I thought must certainly be
+          increasing were actually not, such as{" "}
+          {createTrendLink("pornography", ["pornograph(y|ic)"])},{" "}
+          {createTrendLink("addiction", [" addicti(on|ve) "])},{" "}
+          {createTrendLink("word of wisdom", ["word of wisdom"])},{" "}
+          {createTrendLink("modesty", ["modesty"])} and{" "}
+          {createTrendLink("drugs", [" drugs "])}.
+        </p>
+        <p>
+          Other terms were interesting to spot check, such as{" "}
+          {createTrendLink("R-rated movies", [
+            "(\\WR.rat(ed|ing)\\W|\\Wrat(ed|ing).R\\W)",
+          ])}
+          , {createTrendLink("social media", [" social media "])},{" "}
+          {createTrendLink("gambling", [" gambl(e|ing) "])},{" "}
+          {createTrendLink("tattoos", [" tattoos "])} and{" "}
+          {createTrendLink("LGBTQ", ["(LGBT|homo.?sexual| gays |lesbian)"])}.
         </p>
       </Content>
     </View>
+  );
+}
+
+function createTrendLink(title: string, terms: string[]) {
+  const href = `/search-trends?${terms
+    .map((term) => `searchTerms=${encodeURIComponent(term)}`)
+    .join("&")}`;
+
+  return <StyledLink to={href}>{title}</StyledLink>;
+}
+
+type StyledLinkProps = {
+  children: React.ReactNode;
+  to: string;
+};
+
+function StyledLink({ children, to }: StyledLinkProps) {
+  return (
+    <Link>
+      <RouterLink to={to}>{children}</RouterLink>
+    </Link>
   );
 }

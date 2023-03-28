@@ -170,7 +170,7 @@ export default function Home() {
           ])}
           , {createTrendLink("social media", [" social media "])},{" "}
           {createTrendLink("gambling", [" gambl(e|ing) "])},{" "}
-          {createTrendLink("tattoos", [" tattoos "])} and{" "}
+          {createTrendLink("tattoos", ["tattoo(ing|ed)?"])} and{" "}
           {createTrendLink("LGBTQ", [
             "(LGBT|homo.?sexual| gays |lesbian|same.?sex)",
           ])}

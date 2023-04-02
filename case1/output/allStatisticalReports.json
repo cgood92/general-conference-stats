@@ -3902,5 +3902,50 @@
    }
   ],
   "url": "https://newsroom.churchofjesuschrist.org/article/2021-statistical-report-april-2022-conference"
+ },
+ "2022": {
+  "stats": [
+   {
+    "key": "Stakes",
+    "value": "3,521"
+   },
+   {
+    "key": "Missions",
+    "value": "411"
+   },
+   {
+    "key": "Districts",
+    "value": "517"
+   },
+   {
+    "key": "Wards and Branches",
+    "value": "31,330"
+   },
+   {
+    "key": "Total membership",
+    "value": "17,002,461"
+   },
+   {
+    "key": "New children of record during 2022",
+    "value": "89,059"
+   },
+   {
+    "key": "Converts baptized during 2022",
+    "value": "212,172"
+   },
+   {
+    "key": "Full-Time Teaching Missionaries",
+    "value": "62,544"
+   },
+   {
+    "key": "Senior Church-Service Missionaries",
+    "value": "27,070"
+   },
+   {
+    "key": "Young Church-Service Missionaries",
+    "value": "2,736"
+   }
+  ],
+  "url": "https://newsroom.churchofjesuschrist.org/article/2022-statistical-report-april-2023-conference"
  }
 }

@@ -3947,5 +3947,62 @@
    }
   ],
   "url": "https://newsroom.churchofjesuschrist.org/article/2022-statistical-report-april-2023-conference"
+ },
+ "2023": {
+  "stats": [
+   {
+    "key": "Stakes",
+    "value": "3,565"
+   },
+   {
+    "key": "Missions",
+    "value": "414"
+   },
+   {
+    "key": "Districts",
+    "value": "489"
+   },
+   {
+    "key": "Wards and branches",
+    "value": "31,490"
+   },
+   {
+    "key": "Total membership",
+    "value": "17,255,394"
+   },
+   {
+    "key": "New children of record during 2023",
+    "value": "93,594"
+   },
+   {
+    "key": "Converts baptized during 2023",
+    "value": "251,763"
+   },
+   {
+    "key": "Full-time teaching missionaries",
+    "value": "67,871"
+   },
+   {
+    "key": "Senior service missionaries",
+    "value": "27,801"
+   },
+   {
+    "key": "Young service missionaries",
+    "value": "3,884"
+   },
+   {
+    "key": "*Temples in operation",
+    "value": "186*"
+   },
+   {
+    "key": "Temples under construction",
+    "value": "55"
+   },
+   {
+    "key": "Temples announced",
+    "value": "94"
+   }
+  ],
+  "url": "https://newsroom.churchofjesuschrist.org/article/2023-statistical-report-church-jesus-christ"
  }
 }

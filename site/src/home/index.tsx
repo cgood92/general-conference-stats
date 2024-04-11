@@ -137,13 +137,13 @@ export default function Home() {
           <li>
             Some terms that have trended downward include:{" "}
             {createTrendLink("kingdom", [" kingdom "])},{" "}
-            {createTrendLink("prophet", [" prophet "])} and{" "}
+            {createTrendLink("prophet", [" prophet"])} and{" "}
             {createTrendLink("earth", [" earth "])}.
           </li>
           <li>
             Some terms that have trended upward include:{" "}
             {createTrendLink("faith", [" faith "])},{" "}
-            {createTrendLink("covenants", [" covenants "])},{" "}
+            {createTrendLink("covenants", [" covenant"])},{" "}
             {createTrendLink("temple", [" temple"])},{" "}
             {createTrendLink("atonement", [" atonement "])} and{" "}
             {createTrendLink("help", [" help "])}.

@@ -2165,7 +2165,7 @@
     "value": "1"
    },
    {
-    "key": "Seminaries and institutes, including special programs",
+    "key": "Seminaries and Institutes, including special programs",
     "value": "349,827"
    },
    {
@@ -2688,7 +2688,7 @@
     "value": "9,694,549"
    },
    {
-    "key": "Eight-year-olds baptized during 1996",
+    "key": "Eight-year-old children of record baptized during 1996",
     "value": "81,017"
    },
    {
@@ -2868,8 +2868,12 @@
     "value": "60,784"
    },
    {
-    "key": "Temples Dedicated in 2000",
+    "key": "Temples dedicated in 2000",
     "value": "34"
+   },
+   {
+    "key": "Temples in operation",
+    "value": "102"
    }
   ],
   "url": "https://www.churchofjesuschrist.org/study/general-conference/2001/04/statistical-report-2000?lang=eng"
@@ -2909,8 +2913,8 @@
     "value": "60,850"
    },
    {
-    "key": "Temples Dedicated during 2001\n(Montevideo Uruguay, Winter Quarters Nebraska, Guadalajara Mexico, Perth Australia, Columbia River Washington)",
-    "value": "5"
+    "key": "Temples Dedicated during 2001",
+    "value": "5\n(Montevideo Uruguay, Winter Quarters Nebraska, Guadalajara México, Perth Australia, Columbia River Washington)"
    },
    {
     "key": "Number of temples in operation",
@@ -2954,12 +2958,12 @@
     "value": "61,638"
    },
    {
-    "key": "Temples Dedicated during 2002\n(Snowflake Arizona, Lubbock Texas, Monterrey México, Campinas Brazil, Asunción Paraguay, Nauvoo Illinois, The Hague Netherlands)",
-    "value": "7"
+    "key": "Temples Dedicated during 2002",
+    "value": "7\n(Snowflake Arizona, Lubbock Texas, Monterrey México, Campinas Brazil, Asunción Paraguay, Nauvoo Illinois, and The Hague Netherlands)"
    },
    {
-    "key": "Temples Rededicated during 2002\n(Freiberg Germany and Monticello Utah)",
-    "value": "2"
+    "key": "Temples Rededicated during 2002",
+    "value": "2\n(Freiberg Germany and Monticello Utah)"
    },
    {
     "key": "Number of Temples Currently in Operation",
@@ -3003,8 +3007,8 @@
     "value": "56,237"
    },
    {
-    "key": "Temples Dedicated during 2003\n(Brisbane Australia, Redlands California)",
-    "value": "2"
+    "key": "Temples Dedicated during 2003",
+    "value": "2\n(Brisbane Australia, Redlands California)"
    },
    {
     "key": "Temples in Operation",
@@ -3048,11 +3052,11 @@
     "value": "51,067"
    },
    {
-    "key": "Temples Dedicated during 2004\n(Accra Ghana, Copenhagen Denmark, and Manhattan New York)",
+    "key": "Temples Dedicated during 2004",
     "value": "3"
    },
    {
-    "key": "Temples Rededicated during 2004\n(Anchorage Alaska and São Paulo Brazil)",
+    "key": "Temples Rededicated during 2004",
     "value": "2"
    },
    {
@@ -3097,12 +3101,12 @@
     "value": "52,060"
    },
    {
-    "key": "Temples Dedicated during 2005\n(San Antonio Texas, Aba Nigeria, Newport Beach California)",
-    "value": "3"
+    "key": "Temples Dedicated during 2005",
+    "value": "3\n(San Antonio Texas, Aba Nigeria, Newport Beach California)"
    },
    {
-    "key": "Temples Rededicated during 2005\n(Apia Samoa)",
-    "value": "1"
+    "key": "Temples Rededicated during 2005",
+    "value": "1\n(Apia Samoa)"
    },
    {
     "key": "Total Number of Temples Currently in Operation",
@@ -3146,12 +3150,12 @@
     "value": "53,164"
    },
    {
-    "key": "Temples Dedicated during 2006\n(Sacramento California and Helsinki Finland)",
-    "value": "2"
+    "key": "Temples Dedicated during 2006",
+    "value": "2\n(Sacramento California and Helsinki Finland)"
    },
    {
-    "key": "Temples Rededicated during 2006\n(Santiago Chile and Papeete Tahiti)",
-    "value": "2"
+    "key": "Temples Rededicated during 2006",
+    "value": "2\n(Santiago Chile and Papeete Tahiti)"
    },
    {
     "key": "Total Number of Temples Currently in Operation",
@@ -3195,8 +3199,8 @@
     "value": "52,686"
    },
    {
-    "key": "Temples Rededicated\n(Nuku‘alofa Tonga)",
-    "value": "1"
+    "key": "Temples Rededicated",
+    "value": "1\n(Nuku‘alofa Tonga)"
    },
    {
     "key": "Number of Temples Currently in Operation",
@@ -3240,12 +3244,12 @@
     "value": "52,494"
    },
    {
-    "key": "Temples Dedicated during 2008\n(Rexburg Idaho, Curitiba Brazil, Panama City Panama, and Twin Falls Idaho)",
-    "value": "4"
+    "key": "Temples Dedicated during 2008",
+    "value": "4\n(Rexburg Idaho, Curitiba Brazil, Panama City Panama, and Twin Falls Idaho)"
    },
    {
-    "key": "Temples Rededicated during 2008\n(Mexico City Mexico)",
-    "value": "1"
+    "key": "Temples Rededicated during 2008",
+    "value": "1\n(Mexico City Mexico)"
    },
    {
     "key": "Number of Temples in Operation as of December 31",
@@ -3289,8 +3293,8 @@
     "value": "51,736"
    },
    {
-    "key": "Temples Dedicated during 2009\n(Draper Utah and Oquirrh Mountain Utah)",
-    "value": "2"
+    "key": "Temples Dedicated during 2009",
+    "value": "2\n(Draper Utah and Oquirrh Mountain Utah)"
    },
    {
     "key": "Temples in Operation",
@@ -3416,12 +3420,12 @@
     "value": "22,961"
    },
    {
-    "key": "Temples Dedicated during 2012 (Kansas City Missouri, Manaus Brazil, Brigham City Utah, and Calgary Alberta)",
-    "value": "4"
+    "key": "Temples Dedicated during 2012",
+    "value": "4\n(Kansas City Missouri, Manaus Brazil, Brigham City Utah, and Calgary Alberta)"
    },
    {
-    "key": "Temples Rededicated during 2012 (Buenos Aires Argentina and Boise Idaho)",
-    "value": "2"
+    "key": "Temples Rededicated during 2012",
+    "value": "2\n(Buenos Aires Argentina and Boise Idaho)"
    },
    {
     "key": "Temples in Operation",
@@ -4004,5 +4008,62 @@
    }
   ],
   "url": "https://newsroom.churchofjesuschrist.org/article/2023-statistical-report-church-jesus-christ"
+ },
+ "2024": {
+  "stats": [
+   {
+    "key": "Stakes",
+    "value": "3,608"
+   },
+   {
+    "key": "Missions",
+    "value": "450"
+   },
+   {
+    "key": "Districts",
+    "value": "494"
+   },
+   {
+    "key": "Wards and branches",
+    "value": "31,676"
+   },
+   {
+    "key": "Total membership",
+    "value": "17,509,781"
+   },
+   {
+    "key": "New children of record during 2024",
+    "value": "91,617"
+   },
+   {
+    "key": "Converts baptized during 2024",
+    "value": "308,682"
+   },
+   {
+    "key": "Full-time teaching missionaries",
+    "value": "74,127"
+   },
+   {
+    "key": "Senior service missionaries",
+    "value": "31,120"
+   },
+   {
+    "key": "Young service missionaries",
+    "value": "4,192"
+   },
+   {
+    "key": "Temples in operation",
+    "value": "194"
+   },
+   {
+    "key": "Temples under construction",
+    "value": "59"
+   },
+   {
+    "key": "Additional temples announced",
+    "value": "114"
+   }
+  ],
+  "url": "https://newsroom.churchofjesuschrist.org/article/2024-statistical-report"
  }
 }

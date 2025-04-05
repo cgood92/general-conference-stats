@@ -169,6 +169,7 @@ async function get2018to2021(allStatisticalReports) {
     2021: "https://newsroom.churchofjesuschrist.org/article/2021-statistical-report-april-2022-conference",
     2022: "https://newsroom.churchofjesuschrist.org/article/2022-statistical-report-april-2023-conference",
     2023: "https://newsroom.churchofjesuschrist.org/article/2023-statistical-report-church-jesus-christ",
+    2024: "https://newsroom.churchofjesuschrist.org/article/2024-statistical-report",
   };
 
   for (const year in urls) {

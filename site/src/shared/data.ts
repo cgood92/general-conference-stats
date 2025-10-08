@@ -107,6 +107,7 @@ import talks_2023_10 from "@root/case2/output/2023-10.json";
 import talks_2024_04 from "@root/case2/output/2024-04.json";
 import talks_2024_10 from "@root/case2/output/2024-10.json";
 import talks_2025_04 from "@root/case2/output/2025-04.json";
+import talks_2025_10 from "@root/case2/output/2025-10.json";
 
 const talksCombined = [
   talks_1971_04,
@@ -218,6 +219,7 @@ const talksCombined = [
   talks_2024_04,
   talks_2024_10,
   talks_2025_04,
+  talks_2025_10,
 ].flat();
 
 export default talksCombined;

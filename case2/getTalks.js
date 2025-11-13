@@ -12,7 +12,12 @@ export default async function getTalks(year, month) {
 
   const talks = talkListing
     .filter(filterValidTalks)
-    .map((talk) => ({ ...talk, month, year }))
+    .map((talk) => ({
+      ...talk,
+      month,
+      year,
+      dateKey: makeDateKey(month, year),
+    }))
     .map(getTalkContent);
 
   const fileName = `case2/output/${year}-${month}.json`;
@@ -88,6 +93,14 @@ export function extractTalkContent(string) {
   ).result;
 
   return cleanedText;
+}
+
+function makeDateKey(month, year) {
+  if (month === "10") {
+    return year + 0.5;
+  }
+
+  return year;
 }
 
 const config = {

@@ -7,8 +7,8 @@ export default function useParameters() {
   const [searchParams, setSearchParams] = useSearchParams(defaultSearchParams);
 
   const speaker = searchParams.get("speaker")!;
-  const start = parseInt(searchParams.get("start")!);
-  const end = parseInt(searchParams.get("end")!);
+  const start = parseFloat(searchParams.get("start")!);
+  const end = parseFloat(searchParams.get("end")!);
   const searchTermsText = searchParams.getAll("searchTerms").join("__");
   const memoizedSearchTerms = useMemo(
     () => searchTermsText.split("__").filter(Boolean),

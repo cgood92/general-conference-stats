@@ -60,8 +60,13 @@ export default function Filters({ onChange, value }: FiltersProps) {
             </ComboBox>
             <RangeSlider
               defaultValue={value.years}
-              getValueLabel={(years) => `${years.start} - ${years.end}`}
-              label="Years"
+              getValueLabel={(years) =>
+                `${numberToConferenceName(
+                  years.start
+                )} - ${numberToConferenceName(years.end)}`
+              }
+              step={0.5}
+              label="Conference"
               minValue={minYear}
               maxValue={maxYear}
               onChangeEnd={(years) =>
@@ -79,13 +84,24 @@ export default function Filters({ onChange, value }: FiltersProps) {
   );
 }
 
+function numberToConferenceName(num: number) {
+  let month = "April";
+  if (num % 1 !== 0) {
+    month = "October";
+  }
+
+  const year = Math.floor(num);
+
+  return `${month} ${year}`;
+}
+
 const speakersArray = Array.from(new Set(data.map((talk) => talk.speaker)))
   .sort()
   .map((key) => ({ key: key as string, label: key as string }));
 speakersArray.unshift({ key: "", label: "All Speakers" });
 
-export const minYear = data[0].year;
-export const maxYear = data.slice(-1)[0].year;
+export const minYear = data[0].dateKey;
+export const maxYear = data.slice(-1)[0].dateKey;
 
 export const defaultSearchParams = {
   speaker: "",
@@ -96,16 +112,21 @@ export const defaultSearchParams = {
 
 export function filterData(_data: typeof data, filters: FilterState) {
   return _data.filter((talk) => {
-    let validSpeaker = true;
-
     if (filters.speaker) {
-      validSpeaker = talk.speaker === filters.speaker;
+      if (talk.speaker !== filters.speaker) {
+        return false;
+      }
     }
 
-    const validYear =
-      talk.year <= filters.years.end && talk.year >= filters.years.start;
+    // .0 === "April", .5 === "October"
+    if (
+      talk.dateKey > filters.years.end ||
+      talk.dateKey < filters.years.start
+    ) {
+      return false;
+    }
 
-    return validSpeaker && validYear;
+    return true;
   });
 }
 

@@ -2,14 +2,21 @@ import { buildYearsArray } from "../shared/filters";
 import { getSearchResults, getTrendData } from "./getTrendData";
 
 jest.mock("../shared/data", () => {
-  function createTalk(year: number, speaker: string, content: string) {
+  function createTalk(
+    year: number,
+    month: string,
+    speaker: string,
+    content: string
+  ) {
+    const dateKey = year + (month === "04" ? 0 : 0.5);
     return {
       speaker,
       title: "Title 1",
       url: "https://",
       year,
-      month: 4,
+      month,
       content,
+      dateKey,
     };
   }
 
@@ -18,21 +25,25 @@ jest.mock("../shared/data", () => {
     default: [
       createTalk(
         2009,
+        "04",
         "Speaker A",
         "My beloved brothers and sisters:\nI am deeply grateful for the privilege of meeting with you once again in a general conference of the Lord’s church."
       ),
       createTalk(
         2020,
+        "04",
         "Speaker B",
         "My dear brothers and sisters, welcome to general conference! I have looked forward to this day with great anticipation."
       ),
       createTalk(
         2021,
+        "10",
         "Speaker C",
         "My beloved brothers and sisters, it is a joy to be with you again in another general conference."
       ),
       createTalk(
         2022,
+        "04",
         "Speaker D",
         "My brothers and sisters, as we gather in another general conference, I am pleased to report that the Church continues to grow in strength and influence."
       ),
@@ -82,14 +93,22 @@ describe("getTrendData", () => {
       buildYearsArray(2009, 2022)
     );
 
+    // 2009 to 2022 with half-year increments = 27 data points
+    // Mock data: 2009 (index 0), 2020 (index 22), 2021.5 (index 25), 2022 (index 26)
+    const expectedData = new Array(27).fill(0);
+    expectedData[0] = 1; // 2009 April
+    expectedData[22] = 1; // 2020 April
+    expectedData[25] = 1; // 2021 October
+    expectedData[26] = 1; // 2022 April
+
     expect(series).toEqual([
       {
         name: "general",
-        data: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+        data: expectedData,
       },
       {
         name: "conference",
-        data: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+        data: expectedData,
       },
     ]);
   });

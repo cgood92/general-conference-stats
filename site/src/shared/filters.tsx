@@ -84,17 +84,6 @@ export default function Filters({ onChange, value }: FiltersProps) {
   );
 }
 
-function numberToConferenceName(num: number) {
-  let month = "April";
-  if (num % 1 !== 0) {
-    month = "October";
-  }
-
-  const year = Math.floor(num);
-
-  return `${month} ${year}`;
-}
-
 const speakersArray = Array.from(new Set(data.map((talk) => talk.speaker)))
   .sort()
   .map((key) => ({ key: key as string, label: key as string }));
@@ -131,7 +120,19 @@ export function filterData(_data: typeof data, filters: FilterState) {
 }
 
 export function buildYearsArray(start: number, end: number) {
-  return new Array(end - start + 1).fill(null).map((_, index) => start + index);
+  const count = (end - start) / 0.5 + 1;
+  return new Array(count).fill(null).map((_, index) => start + index * 0.5);
+}
+
+export function numberToConferenceName(num: number) {
+  let month = "April";
+  if (num % 1 !== 0) {
+    month = "October";
+  }
+
+  const year = Math.floor(num);
+
+  return `${month} ${year}`;
 }
 
 function getIsFilterActive(currentFilters: FilterState) {

@@ -1,4 +1,5 @@
 import commonChartConfig from "../commonChartConfig";
+import { numberToConferenceName } from "./filters";
 
 type options = {
   searchTerms: Array<string>;
@@ -17,7 +18,7 @@ export function getChartOptions({ searchTerms, yearsArray }: options) {
         .join(", ")} over time`,
     },
     xaxis: {
-      categories: yearsArray,
+      categories: yearsArray.map(numberToConferenceName),
     },
     yaxis: {
       title: {

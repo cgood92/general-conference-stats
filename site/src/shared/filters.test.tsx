@@ -83,11 +83,19 @@ describe("filterData", () => {
 });
 
 describe("buildYearsArray", () => {
-  it("builds correct array", () => {
-    expect(buildYearsArray(1990, 1992)).toEqual([1990, 1991, 1992]);
+  it("builds correct array with half-year increments", () => {
+    expect(buildYearsArray(1990, 1991)).toEqual([1990, 1990.5, 1991]);
   });
 
-  it("a single year is fine", () => {
+  it("a single conference is fine", () => {
     expect(buildYearsArray(1990, 1990)).toEqual([1990]);
+  });
+
+  it("handles half-year start and end", () => {
+    expect(buildYearsArray(1990.5, 1991.5)).toEqual([1990.5, 1991, 1991.5]);
+  });
+
+  it("handles April to October of same year", () => {
+    expect(buildYearsArray(1990, 1990.5)).toEqual([1990, 1990.5]);
   });
 });

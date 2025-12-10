@@ -49,20 +49,20 @@ function groupIntoYears(
   yearsArray: Array<number>
 ) {
   return terms.map((_, index) => {
-    const groupByYear = results[index].reduce<Record<string, number>>(
+    const groupByDateKey = results[index].reduce<Record<string, number>>(
       (acc, resultSet) => {
-        const previous = acc[resultSet.talk.year] || 0;
-        acc[resultSet.talk.year] = previous + resultSet.results.length;
+        const previous = acc[resultSet.talk.dateKey] || 0;
+        acc[resultSet.talk.dateKey] = previous + resultSet.results.length;
 
         return acc;
       },
       {}
     );
 
-    return yearsArray.map((year) => ({
-      key: year,
-      year,
-      count: groupByYear[year] || 0,
+    return yearsArray.map((dateKey) => ({
+      key: dateKey,
+      dateKey,
+      count: groupByDateKey[dateKey] || 0,
     }));
   });
 }

@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`creates a logical plaintext snippet for the results case 1 plain text 1`] = `
+"... and friends who are listening by radio and television, may I now for a few moments make some comments about a condition which is of great concern to all of us...  listening by radio and television, may I now for a few moments make some comments about a condition which is of great concern to all of us today... 
+“Self-respect is the noblest garment with which a man can clothe himself, the most elevating feeling with which the...  of the importance of conforming to certain standards required for advancement...  I pondered this subject and searched the word of God to prepare for this assignment, I immediately sensed that I was to talk about a subject that is of first...  often than not a bid for a kind of attention or popularity that physical and mental endowments do not invite...  not a bid for a kind of attention or popularity that physical and mental endowments do not invite...  often but a reflection of an individual who is seeking, by superficial adornment or by abnormal conduct (in a strange way), to supply that indefinable quality...  of this earth’s existence and, furthermore, if they would keep the commandments as God taught by the revelations, they would have “glory added upon their... 
+So the Old Testament prophets declared with respect to death: “Then shall the dust [meaning our...  blessed to have a physical body because of your obedience to certain commandments in that premortal state...  apostle Paul impressed the sacredness of our individual bodies in this statement: “Know ye not that ye are the temple of God, and that the Spirit of God...  members of the church that they had received the gift of a special endowment known as the Holy Ghost..."
+`;
+
 exports[`creates a logical snippet for the results case 1 1`] = `
 Array [
   "...",

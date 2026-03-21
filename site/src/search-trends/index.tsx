@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { Flex, Provider, View, Well } from "@adobe/react-spectrum";
+import { Button, Flex, Provider, View, Well } from "@adobe/react-spectrum";
 import ApexChart from "react-apexcharts";
 import EmptySearch from "./emptySearch";
 import Filters, { buildYearsArray } from "../shared/filters";
@@ -7,6 +7,7 @@ import { getChartOptions } from "../shared/getChartOptions";
 import { getSearchResults, getTrendData, SearchResult } from "./getTrendData";
 import SearchBar from "./searchBar";
 import SearchResultsTable from "./SearchResultsTable";
+import { downloadSearchResultsCSV } from "./downloadCSV";
 import useParameters from "../shared/useParameters";
 import SearchTips from "./SearchTips";
 
@@ -92,6 +93,11 @@ export default function SearchTrends() {
                 type="line"
                 height={350}
               />
+              <Flex justifyContent="end" marginBottom="size-150" marginEnd="size-300">
+                <Button variant="secondary" onPress={() => downloadSearchResultsCSV(searchResults)}>
+                  Download Table (CSV)
+                </Button>
+              </Flex>
               <SearchResultsTable key={searchResultsKey} data={searchResults} />
             </>
           )}

@@ -26,6 +26,25 @@ export default function getSnippetFromResults(results: RegExpMatchArray[]) {
   );
 }
 
+export function getPlainTextSnippetFromResults(results: RegExpMatchArray[]) {
+  return (
+    "..." +
+    results
+      .map((result) => {
+        const { 0: textMatch, index, input } = result;
+
+        const start = index!;
+        const end = start + textMatch.length;
+
+        const before = getBefore(input!, start);
+        const after = getAfter(input!, end);
+
+        return `${before}${textMatch}${after}`;
+      })
+      .join(" ")
+  );
+}
+
 function getBefore(input: string, index: number) {
   let cursor = 0;
   let currentCharacter = input[index - cursor];

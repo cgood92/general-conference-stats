@@ -2,7 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import talks_1973_10 from "@root/case2/output/1973-10.json";
 
-import getSnippetFromResults from "./getSnippetFromResults";
+import getSnippetFromResults, { getPlainTextSnippetFromResults } from "./getSnippetFromResults";
 
 type Results = RegExpMatchArray[];
 
@@ -17,6 +17,16 @@ describe("creates a logical snippet for the results", () => {
 
     expect(
       renderer.create(<Example results={results} />).toJSON()
+    ).toMatchSnapshot();
+  });
+});
+
+describe("creates a logical plaintext snippet for the results", () => {
+  it("case 1 plain text", () => {
+    const results: Results = Array.from(text.matchAll(/ment/gi));
+
+    expect(
+      getPlainTextSnippetFromResults(results)
     ).toMatchSnapshot();
   });
 });

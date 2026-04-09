@@ -6,16 +6,33 @@ import Layout from "./layout";
 import Loading from "./loading";
 import "./index.css";
 
-const growthImport = import("./growth");
-const Growth = React.lazy(() => growthImport);
-const wordCountsImport = import("./word-counts");
-const WordCounts = React.lazy(() => wordCountsImport);
-const searchTrendsImport = import("./search-trends");
-const SearchTrends = React.lazy(() => searchTrendsImport);
-const methodologyImport = import("./methodology");
-const Methodology = React.lazy(() => methodologyImport);
-const vocabularySizeImport = import("./vocabulary-size");
-const VocabularySize = React.lazy(() => vocabularySizeImport);
+const lazyWithRetry = <T extends React.ComponentType<any>>(
+  componentImport: () => Promise<{ default: T }>
+) =>
+  React.lazy(async () => {
+    const pageHasAlreadyBeenForceRefreshed = JSON.parse(
+      window.sessionStorage.getItem("page-has-been-force-refreshed") || "false"
+    );
+
+    try {
+      const component = await componentImport();
+      window.sessionStorage.setItem("page-has-been-force-refreshed", "false");
+      return component;
+    } catch (error) {
+      if (!pageHasAlreadyBeenForceRefreshed) {
+        window.sessionStorage.setItem("page-has-been-force-refreshed", "true");
+        window.location.reload();
+        return new Promise<{ default: T }>(() => {});
+      }
+      throw error;
+    }
+  });
+
+const Growth = lazyWithRetry(() => import("./growth"));
+const WordCounts = lazyWithRetry(() => import("./word-counts"));
+const SearchTrends = lazyWithRetry(() => import("./search-trends"));
+const Methodology = lazyWithRetry(() => import("./methodology"));
+const VocabularySize = lazyWithRetry(() => import("./vocabulary-size"));
 
 const router = createHashRouter([
   {

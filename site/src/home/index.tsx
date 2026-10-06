@@ -19,6 +19,7 @@ import Trend from "./trend.svg";
 import "./home.css";
 
 const links = [
+  { img: Trend, title: "Conference Insights", to: "/insights" },
   {
     img: Table,
     title: "Word counts",
@@ -50,7 +51,7 @@ export default function Home() {
           columns={{
             base: ["1fr"],
             S: ["1fr"],
-            M: ["1fr", "1fr", "1fr", "1fr"],
+            M: ["1fr", "1fr", "1fr", "1fr", "1fr"],
           }}
           autoRows={{ base: "size-1000", M: "size-2000" }}
           gap="size-100"

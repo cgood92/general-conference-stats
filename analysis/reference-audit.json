@@ -1,0 +1,53 @@
+{
+  "methodVersion": 3,
+  "totals": {
+    "talks": 3963,
+    "source checked": 3963,
+    "notes": 26822,
+    "inline_links": 24486,
+    "unresolved_anchors": 0,
+    "unmatched_notes": 2
+  },
+  "decades": {
+    "1970": {
+      "talks": 683,
+      "notes": 11,
+      "inlineLinks": 5516
+    },
+    "1980": {
+      "talks": 624,
+      "notes": 29,
+      "inlineLinks": 6930
+    },
+    "1990": {
+      "talks": 716,
+      "notes": 2719,
+      "inlineLinks": 5592
+    },
+    "2000": {
+      "talks": 736,
+      "notes": 5800,
+      "inlineLinks": 3665
+    },
+    "2010": {
+      "talks": 726,
+      "notes": 9167,
+      "inlineLinks": 2154
+    },
+    "2020": {
+      "talks": 478,
+      "notes": 9096,
+      "inlineLinks": 629
+    }
+  },
+  "checkedAt": "2026-10-06",
+  "fixtureYears": [
+    1971,
+    1980,
+    1990,
+    2000,
+    2010,
+    2020,
+    2026
+  ]
+}

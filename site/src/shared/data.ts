@@ -111,7 +111,9 @@ import talks_2025_10 from "@root/case2/output/2025-10.json";
 import talks_2026_04 from "@root/case2/output/2026-04.json";
 import talks_2026_10 from "@root/case2/output/2026-10.json";
 
-const talksCombined = [
+type SearchTalk = Omit<(typeof talks_1971_04)[number], "references">;
+
+const talksCombined: SearchTalk[] = [
   talks_1971_04,
   talks_1971_10,
   talks_1972_04,

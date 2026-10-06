@@ -4,6 +4,7 @@ import { JSDOM } from "jsdom";
 import { stripHtml } from "string-strip-html";
 import { BASE_URL } from "./constants.js";
 import filterValidTalks from "./filterValidTalks.js";
+import { extractTalkReferences } from "./getTalkReferences.js";
 
 const MAX_ATTEMPTS = 5;
 
@@ -27,9 +28,13 @@ export default async function getTalks(year, month) {
     .then(() => console.info(`\n${fileName} is written`));
 }
 
-function getTextFromUrl(url, attempts = 0) {
-  return fetch(url)
-    .then((response) => response.text())
+export function getTextFromUrl(url, attempts = 0) {
+  return fetch(url, { signal: AbortSignal.timeout(20000) })
+    .then((response) => {
+      if (!response.ok)
+        throw new Error(`HTTP ${response.status} fetching ${url}`);
+      return response.text();
+    })
     .catch((error) => {
       console.info(`Error fetching (attempt ${attempts + 1})`, url);
       console.error(error);
@@ -37,7 +42,10 @@ function getTextFromUrl(url, attempts = 0) {
       if (attempts < MAX_ATTEMPTS) {
         return getTextFromUrl(url, attempts + 1);
       } else {
-        throw `Tried ${MAX_ATTEMPTS} times to get ${url}` + url;
+        throw new Error(
+          `Failed to fetch ${url} after ${attempts + 1} attempts`,
+          { cause: error }
+        );
       }
     });
 }
@@ -48,7 +56,9 @@ async function getTalkListingForConference(year, month) {
 
   const contents = await getTextFromUrl(indexUrl);
 
-  return extractTalkListingsFromDOM(contents);
+  const listing = extractTalkListingsFromDOM(contents);
+  if (!listing.length) throw new Error(`No talks found at ${indexUrl}`);
+  return listing;
 }
 
 export function extractTalkListingsFromDOM(string) {
@@ -69,20 +79,12 @@ export function extractTalkListingsFromDOM(string) {
 }
 
 async function getTalkContent(talk) {
-  try {
-    const content = await getTextFromUrl(talk.url);
-    console.info(`Fetched: ${talk.url}`);
-
-    return {
-      ...talk,
-      content: extractTalkContent(content),
-    };
-  } catch (error) {
-    console.info("Failed to get talk content for ", JSON.stringify(talk));
-    console.error(error);
-  }
-
-  return talk;
+  const html = await getTextFromUrl(talk.url);
+  const references = extractTalkReferences(html);
+  if (references.coverage === "unavailable")
+    throw new Error(`Missing talk body: ${talk.url}`);
+  console.info(`Fetched: ${talk.url}`);
+  return { ...talk, content: extractTalkContent(html), references };
 }
 
 export function extractTalkContent(string) {
@@ -104,12 +106,5 @@ function makeDateKey(month, year) {
 }
 
 const config = {
-  stripTogetherWithTheirContents: [
-    "script",
-    "style",
-    "xml",
-    "sup",
-    "figure",
-    "cite",
-  ],
+  stripTogetherWithTheirContents: ["script", "style", "xml", "sup", "figure"],
 };

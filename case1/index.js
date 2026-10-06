@@ -29,7 +29,7 @@ async function getAllStatisticalReports() {
 
   await get1970to2016(allStatisticalReports);
   await get2017(allStatisticalReports);
-  await get2018to2021(allStatisticalReports);
+  await getNewsroomReports(allStatisticalReports);
 
   writeFileSync(
     "case1/output/allStatisticalReports.json",
@@ -161,7 +161,7 @@ function toArrayOfKeyValues(object) {
   );
 }
 
-async function get2018to2021(allStatisticalReports) {
+async function getNewsroomReports(allStatisticalReports) {
   const urls = {
     2018: "https://newsroom.churchofjesuschrist.org/article/2018-statistical-report",
     2019: "https://newsroom.churchofjesuschrist.org/article/2019-statistical-report",
@@ -170,6 +170,7 @@ async function get2018to2021(allStatisticalReports) {
     2022: "https://newsroom.churchofjesuschrist.org/article/2022-statistical-report-april-2023-conference",
     2023: "https://newsroom.churchofjesuschrist.org/article/2023-statistical-report-church-jesus-christ",
     2024: "https://newsroom.churchofjesuschrist.org/article/2024-statistical-report",
+    2025: "https://newsroom.churchofjesuschrist.org/article/2025-statistical-report",
   };
 
   for (const year in urls) {

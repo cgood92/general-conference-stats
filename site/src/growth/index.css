@@ -1,0 +1,125 @@
+.growth-page {
+  max-width: 1200px;
+  margin: 32px auto 60px;
+  color: #263344;
+}
+.growth-page h1 {
+  font-size: 34px;
+  letter-spacing: -1px;
+  margin: 8px 0 12px;
+}
+.growth-intro {
+  max-width: 720px;
+  color: #66717e;
+  line-height: 1.7;
+  font-size: 16px;
+}
+.growth-controls {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 24px 0;
+  flex-wrap: wrap;
+}
+.growth-controls label {
+  font-size: 14px;
+  font-weight: 600;
+}
+.growth-controls select {
+  margin-left: 12px;
+  padding: 10px 12px;
+  border: 1px solid #ccd3de;
+  border-radius: 8px;
+  background: white;
+  color: #263344;
+}
+.growth-check {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.growth-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  border: 1px solid #dce2ec;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 24px 0;
+  background: #dce2ec;
+}
+.growth-summary > div {
+  background: #fff;
+  padding: 20px;
+}
+.growth-summary span {
+  display: block;
+  color: #66717e;
+  font-size: 12px;
+}
+.growth-summary strong {
+  display: block;
+  font-size: 26px;
+  margin-top: 8px;
+}
+.growth-summary-help {
+  color: #66717e;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 10px 0 0;
+}
+.growth-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.growth-chart {
+  padding: 22px 18px 12px;
+  border: 1px solid #dce2ec;
+  border-radius: 12px;
+  background: white;
+  min-width: 0;
+}
+.growth-chart h2 {
+  font-size: 19px;
+  margin: 0 0 8px;
+}
+.growth-chart p {
+  min-height: 42px;
+  color: #66717e;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+.growth-method {
+  margin-top: 24px;
+  padding: 18px;
+  border-radius: 10px;
+  background: #eaf0f8;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.growth-method summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.insight-eyebrow {
+  font-size: 11px;
+  color: #6275a0;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+@media (max-width: 750px) {
+  .growth-page {
+    margin: 20px 12px;
+  }
+  .growth-grid {
+    grid-template-columns: 1fr;
+  }
+  .growth-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .growth-page h1 {
+    font-size: 28px;
+  }
+}

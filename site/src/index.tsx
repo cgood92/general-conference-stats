@@ -28,6 +28,7 @@ const lazyWithRetry = <T extends React.ComponentType<any>>(
     }
   });
 
+const Insights = lazyWithRetry(() => import("./insights"));
 const Growth = lazyWithRetry(() => import("./growth"));
 const WordCounts = lazyWithRetry(() => import("./word-counts"));
 const SearchTrends = lazyWithRetry(() => import("./search-trends"));
@@ -35,6 +36,16 @@ const Methodology = lazyWithRetry(() => import("./methodology"));
 const VocabularySize = lazyWithRetry(() => import("./vocabulary-size"));
 
 const router = createHashRouter([
+  {
+    path: "/insights",
+    element: (
+      <Layout>
+        <Suspense fallback={<Loading />}>
+          <Insights />
+        </Suspense>
+      </Layout>
+    ),
+  },
   {
     path: "/growth",
     element: (

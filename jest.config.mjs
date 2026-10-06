@@ -4,6 +4,8 @@
  */
 
 export default {
+  // The React/TypeScript suite runs through site/package.json (craco test).
+  testMatch: ["<rootDir>/case*/**/*.test.js"],
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 

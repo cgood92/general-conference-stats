@@ -31,6 +31,10 @@ export default function Header() {
         </Link>
         <Divider orientation="vertical" size="M" />
         <Link>
+          <NavLink to="/insights">Insights</NavLink>
+        </Link>
+        <Divider orientation="vertical" size="M" />
+        <Link>
           <NavLink to="/growth">Growth charts</NavLink>
         </Link>
         <Divider orientation="vertical" size="M" />

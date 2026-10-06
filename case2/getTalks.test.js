@@ -88,3 +88,12 @@ function normalizeWhitespace(string) {
     .replaceAll(/ +/g, " ")
     .trim();
 }
+
+test("keeps citation titles while keeping footnote markers out of spoken text", () => {
+  const html =
+    '<div class="body-block"><p>He quoted <cite>History of the Church</cite>.<a class="note-ref" href="#note1"><sup>1</sup></a></p></div><div class="notes"><li id="note1">A footnote citation.</li></div>';
+  const text = extractTalkContent(html);
+  expect(text).toContain("History of the Church");
+  expect(text).not.toContain("A footnote citation");
+  expect(text).not.toContain("1");
+});
